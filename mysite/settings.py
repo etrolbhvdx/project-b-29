@@ -157,5 +157,5 @@ SOCIALACCOUNT_PROVIDERS = {
 #what is the site_id doing? why does 0 work
 SITE_ID = 3
 
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/home'
 LOGOUT_REDIRECT_URL = '/'
