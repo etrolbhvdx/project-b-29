@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UVA SEAS Transfer Site</title>
+</head>
+<body>
+<h1>Welcome to the UVA Engineering Transfer Site</h1>
+{% if user.is_admin %}
+<ul>
+{% for message in object_list %}
+    <li>{{ message.message_text }}</li>
+{% endfor %}
+</ul>
+{% else %}
+<form action="post" method="post">
+{% csrf_token %}
+<fieldset>
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+    <label for="commentsInput">Please Indicate Your Transfer Request Here</label>
+    <input type="text" name = "message" id="commentsInput" placeholder="Enter Request">
+    <input type="submit" name="Submit">
+    <small id="commentsHelp">Notice: Decisions will be processed in no more than 24 business hours</small>
+</fieldset>
+</form>
+{% endif %}
+</body>
+</html>
