@@ -28,7 +28,9 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('logout/', LogoutView.as_view()),
     path('home/', views.login_handler),
-    path('home/seas/', views.SeasView.as_view()),
+    path('home/seas/', views.SeasReqView.as_view()),
+    path('home/seas/results', views.SeasSearchView.as_view()),
     path('home/clas/', views.ClasView.as_view()),
-    path('home/seas/post', views.post)
+    path('home/seas/post', views.post),
+    path('home/seas/search', views.search)
 ]
