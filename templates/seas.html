@@ -51,6 +51,27 @@
     <input type="submit" name="Submit">
 </fieldset>
 </form>
+<h2>Search for transfer credit</h2>
+<form action="transfer" method="post">
+{% csrf_token %}
+<fieldset>
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+    <label for="transfer">This search will return all transfer equivalencies for a given university</label>
+    <select id="transfer" name="transfer">
+        <option value=1>Auburn University</option>
+        <option value=2>Northern Arizona University</option>
+        <option value=3>University of Central Arkansas</option>
+        <option value=4>CSU - Dominguez Hills</option>
+        <option value=5>Fullerton College</option>
+        <option value=6>Palomar Comm College</option>
+        <option value=7>Stanford University</option>
+        <option value=8>UC - Berkeley</option>
+        <option value=9>Front Range Comm College</option>
+        <option value=10>University of Colorado - Boulder</option>
+    </select>
+    <input type="submit" name="Submit">
+</fieldset>
+</form>
 {% endif %}
 </body>
 </html>

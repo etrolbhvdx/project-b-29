@@ -1,0 +1,26 @@
+$Auburn University
+ENGR 2050	Statics	3	MAE 2300	3
+$Northern Arizona University
+CSE 110	Prin of Programming	3	CS 1110	3
+$University of Central Arkansas
+MATH 1592 	Calculus II	5	APMA 1110	4
+MATH 3320  	Linear Algebra  3	APMA 3080	3
+MATH 3331  	Ordinary Diff Equations 3	APMA 2130	4
+MATH 4372 	Statistics  3	APMA 3120	3
+$CSU - Dominguez Hills
+PHY 130	General Physics I	5	PHYS 1425/1429	3/1
+PHY 132	General Physics II	5	PHYS 2415/2419	3/1
+$Fullerton College
+MATH 251	Multivariable Calculus	4	APMA 2120	4
+$Palomar Comm College
+CHEM 110	General Chemistry	3	CHEM 1410	3
+CHEM 110L	General Chemistry Lab	2	CHEM 1411 	1
+$Stanford University
+CME 108-01	Intro to Scientific Computing	3	CHE 2216	3
+$UC - Berkeley
+MATH 53	Multivariable Calculus	4	APMA 2120	4
+$Front Range Comm College
+PHYS 212	Physics:  Calc Based II	5	PHYS 2415/2419	3/1
+$University of Colorado - Boulder
+CS 1150	Principles of CS	3	CS 1110	3
+EBIO 2070	Prin of Genetics & Dev Bio	3	BIOL 3010	3
