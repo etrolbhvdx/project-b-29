@@ -6,6 +6,18 @@
 </head>
 <body>
 <h1>Welcome to the UVA Engineering Transfer Site</h1>
+{% for message in object_list %}
+    <li>{{ message }}</li>
+{% endfor %}
+<form action="approveTransfer" method="post">
+    {% csrf_token %}
+    <button>Approve first request</button>
+</form>
+<form action="denyTransfer" method="post">
+    {% csrf_token %}
+    <button>Deny first request</button>
+</form>
+</ul>
 <h2>Submit a Request to Transfer Credit</h2>
 <form action="post" method="post">
 {% csrf_token %}
@@ -45,6 +57,7 @@
     <input type="submit" name="Submit">
 </fieldset>
 </form>
+<br>
 <a>To view classes from other schools that have been approved for transfer, please click</a>
 <a href="/home/seas/approved">here</a>
 </body>

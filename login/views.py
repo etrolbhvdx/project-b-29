@@ -5,7 +5,8 @@ from django.views import generic
 import requests
 import json
 
-from .models import Message, Offering
+
+from .models import Message, Offering, ApprovedTransfer
 from django.urls import reverse
 
 
@@ -23,14 +24,19 @@ def login_handler(request):
         student_group.user_set.add(request.user)
         return render(request, 'student.html')
 
+def viewSeas(request):
+    if request.user.groups.filter(name='Student').exists():
+        return render(request,'seas.html')
 
 class SeasReqView(generic.ListView):
     model = Message
-    template_name = 'seas.html'
+    template_name = 'seasadmin.html'
     fields = ['message_text']
-
+#what does get_attr do
     def get_queryset(self):
         return Message.objects.all()
+    def __str__(self):
+        return self.email
 
 
 class SeasSearchView(generic.ListView):
@@ -42,6 +48,23 @@ class SeasSearchView(generic.ListView):
         return Offering.objects.all()
 
 
+class ApprovedTransferView(generic.ListView):
+    model = ApprovedTransfer
+    template_name = 'approved.html'
+    def get_queryset(self):
+        return ApprovedTransfer.objects.all()
+
+def approveTransfer(request):
+    me=Message.objects.first()
+    req=ApprovedTransfer(class_name=me.message_text,school_name=me.school_name,equivalency_name=me.equivalency_name)
+    me.delete()
+    req.save()
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+def denyTransfer(request):
+    me = Message.objects.first()
+    me.delete()
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 class ClasView(CreateView):
     template_name = 'clas.html'
@@ -50,7 +73,7 @@ class ClasView(CreateView):
 
 
 def post(request):
-    m = Message(message_text=request.POST.get("message", ""))
+    m = Message(message_text=request.POST.get("message", ""),school_name=request.POST.get("message2",""),equivalency_name=request.POST.get("message3",""))
     m.save()
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 

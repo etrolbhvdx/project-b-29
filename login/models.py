@@ -11,9 +11,11 @@ class User(models.Model):
 
 class Message(models.Model):
     message_text = models.CharField(max_length=200)
+    school_name = models.CharField(max_length=200,default="uva")
+    equivalency_name = models.CharField(max_length=200,default="None")
 
     def __str__(self):
-        return self.message_text
+        return "Class="+self.message_text+", School="+self.school_name+", Equivalency="+self.equivalency_name
 
 
 class Offering(models.Model):
@@ -25,3 +27,11 @@ class Offering(models.Model):
 
     def __str__(self):
         return self.section
+
+class ApprovedTransfer(models.Model):
+    class_name = models.CharField(max_length=200)
+    school_name = models.CharField(max_length=200, default="uva")
+    equivalency_name = models.CharField(max_length=200, default="None")
+
+    def __str__(self):
+        return "Class="+self.class_name+", School="+self.school_name+", Equivalency="+self.equivalency_name

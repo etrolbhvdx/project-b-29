@@ -4,6 +4,7 @@
 <h1> Login Screen </h1>
 {% if user.is_authenticated %}
   <p>Welcome, You are logged in as {{ user.username }}</p>
+    <footer>You are a student</footer>
   <h2>Transfer Credit</h2>
   <p>To find out more information about transferring credits to UVA, please choose a school below</p>
   <ul>
@@ -15,7 +16,6 @@
     <li>School of Nursing</li>
     <li>Batten School of Leadership and Public Policy</li>
   </ul>
-    <footer>You are a student</footer>
   <a href="/logout/">Logout</a>
 {% else %}
   <a href="{% provider_login_url 'google' %}">Login With Google</a>
