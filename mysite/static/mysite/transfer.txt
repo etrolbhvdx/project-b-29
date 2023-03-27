@@ -4,9 +4,9 @@ $Northern Arizona University
 CSE 110	Prin of Programming	3	CS 1110	3
 $University of Central Arkansas
 MATH 1592 	Calculus II	5	APMA 1110	4
-MATH 3320  	Linear Algebra  3	APMA 3080	3
-MATH 3331  	Ordinary Diff Equations 3	APMA 2130	4
-MATH 4372 	Statistics  3	APMA 3120	3
+MATH 3320  	Linear Algebra	3	APMA 3080	3
+MATH 3331  	Ordinary Diff Equations	3	APMA 2130	4
+MATH 4372 	Statistics	3	APMA 3120	3
 $CSU - Dominguez Hills
 PHY 130	General Physics I	5	PHYS 1425/1429	3/1
 PHY 132	General Physics II	5	PHYS 2415/2419	3/1
@@ -24,3 +24,426 @@ PHYS 212	Physics:  Calc Based II	5	PHYS 2415/2419	3/1
 $University of Colorado - Boulder
 CS 1150	Principles of CS	3	CS 1110	3
 EBIO 2070	Prin of Genetics & Dev Bio	3	BIOL 3010	3
+$Eastern Connecticut State Univ
+CHE 210	General Chemistry I w/Lab 	4	CHEM 1410/1411	3/1
+CHE 211	General Chemistry II w/Lab 	4	CHEM 1420/1421	3/1
+MAT 244	Calculus II	4	APMA 1110 	4
+MAT 310	Applied Linear Algebra	3	APMA 3080	3
+MAT 315	Probability & Statistics	3	APMA 3110	3
+MAT 340	Calculus III	4	APMA 2120	4
+$Fairfield University
+PHYS 1502	Physics for Engineers II	4	PHYS 2415/2419	3/1
+$University of Connecticut
+MATH 1132	Calculus II	4	APMA 1110	4
+MATH 2110	Multivariable Calculus	4	APMA 2120	4
+MATH 3160	Probability	4	APMA 3100	3
+MATH 3435	Differential Equations	4	APMA 2130	4
+$University of Hartford
+Intro to Computer Prog	4	CS 1110	3
+M 145	Calculus II	4	APMA 1110	4
+M 220	Linear Algebra	3	APMA 3080	3
+$Delaware State University
+MAT 283	Multivariable Calculus	4	APMA 2120	4
+PHYS 202	General Physics II	4	PHYS 2415/2419	3/1
+$Stanton Comm College
+MAT 253	Discrete Math	3	CS 2120	3
+MAT 282	Calculus II	4	APMA 1110 	4
+MAT 283	Multivariable Calculus	4	APMA 2120	4
+MAT 288	Linear Algebra	4	APMA 3080	3
+MAT 291	Ordinary Diff Equations	4	APMA 2130	4
+$University of Delaware
+MATH 210	Discrete Math	3	CS 2102	3
+$Edison State College
+PHY 2049	General Physics II	4	PHYS 2415	3
+PHY 2049L	General Physics II Lab	1	PHYS 2419	1
+$Embry-Riddle Aeronautical Univ
+CS 223	Scientific Programming	3	CS 1110	3
+MA 242	Calc & Analytical Geom	4	APMA 1110	4
+PS 150	Physics I for Engineers	3	PHYS 1425	3
+$Florida Atlantic University
+PHY 2044	Physics for Engineers 2	3	PHYS 2415	3
+PHY 2049L	General Physics 2 Laboratory	1	PHYS 2419	1
+$Florida State University
+PHY 2049	General Physics	5	PHYS 2415	3
+PHY 2049L	General Physics Lab	0	PHYS 2419	1
+$Manatee Comm Coll-Bradenton
+PHY 2048	General Physics w/Calc I	3	PHYS 1425	3
+PHY 2048L	General Physics w/Calc I Lab	1	PHYS 1429	1
+PHY 2049	General Physics w/Calc II	3	PHYS 2415	3
+PHY 2049L	General Physics w/Calc II Lab	1	PHYS 2419	1
+$University of Florida
+CHM 2045	General Chemistry 1	3	CHEM 1410	3
+CHM 2045L	General Chemistry 1 Lab	1	CHEM 1411	1
+CHM 2046	General Chemistry 2	3	CHEM 1420	3
+CHM 2046L	General Chemistry 2 Lab	1	CHEM 1421	1
+PHY 2049	Physics w/Calculus 2	3	PHYS 2415	3
+$Georgia Institute of Technology
+AE 2120	Intro to Mechanics (Statics)	3	CE 2300	3
+CHBE 2120	CHE Numerical Methods	3	CHE 2216	3
+ISYE 3770	Statistics & Applications	3	APMA 3110	3
+MATH 2401	Calculus III	4	APMA 2120	4
+MATH 3215	Probability & Statistics	3	APMA 3100	3
+ME 3322	Thermodynamics	3	CHE 2202	3
+PHYS 2212	Physics II	3	PHYS 2415	3
+$Georgia Perimeter Coll-Decatur
+PHYS 2212	Prin of Physics II	3	PHYS 2415	3
+PHYS 2212L	Prin of Physics II Lab	1	PHYS 2419	1
+$Georgia State University
+MATH 2215	Multivariable Calculus	4	APMA 2120	4
+PHYS 2212	Prin of Physics II	4	PHYS 2415/2419	3/1
+$Shorter University
+MAT 4180	Probability Theory	4	APMA 3100	3
+$Southern Polytechnic State Univ
+ENGR 2214	Statics	3	MAE 2300	3
+ME 3410	Thermodynamics	3	MAE 2100	3
+$University of Hawaii
+PHYS 272	General Physics II	3	PHYS 2415	3
+PHYS 272L	General Physics II Lab	1	PHYS 2419	1
+$Boise State University
+PHYS 212	Physics II w/Calc	3	PHYS 2415	3
+PHYS 212L	Physics II w/Calc Lab	1	PHYS 2419	1
+$College of DuPage
+CIS 2571	Intro to Programming	3	CS 1110	3
+PHY 2112	Physics for Science & Engineering II	5	PHYS 2415	3
+$College of Lake County
+MTH 146	Calculus & Analytical Geo II	4	APMA 1110	4
+$Loyola University of Chicago
+CHEM 223	Organic Chemistry	3	CHEM 2410	3
+CHEM 225	Organic Chemistry Lab	1	CHEM 2421	1
+$Oakton Comm College-Des Plaines
+MAT 252	Calculus III	4	APMA 2120	4
+MAT 260	Linear Algebra	3	APMA 3080	3
+$University of Illinois-Urbana
+MATH 231	Calculus II	4	APMA 1110	4
+MATH 241	Calculus III	4	APMA 2120	4
+MATH 415	Applied Linear Algebra	3	APMA 3080	3
+MATH 461	Probability Theory	3	APMA 3100	3
+PHYS 212	University Physics: Elec & Mag	4	PHYS 2415/2419	3/1
+$College of Lake Cty-Grays Lake
+Chemistry 123	Chemistry II	5	CHEM 1420/1421	3/1
+$Johnson Cty Comm College
+MATH 254	Differential Equations	4	APMA 2130	4
+MATH 246	Linear Algebra	3	APMA 3080	3
+$Louisiana State University
+CHEM 2261	Organic Chemistry	3	CHEM 2410	3
+$Louisiana Tech
+MATH 405	Linear Algebra	3	APMA 3080	3
+$Tulane University
+PHYS 1320	General Physics II	4	PHYS 2415	3
+$University of New Orleans
+MATH 2134	Calculus III	4	APMA 2120	4
+$Anne Arundel Comm College
+MAT 201	Multivariable Calculus	4	APMA 2120	4
+$College of Southern Maryland
+MTH 1210	Calculus II	4	APMA 1110	4
+$Howard Comm College
+MATH 182	Calculus II	4	APMA 1110	4
+MATH 220	Discrete Structures	3	CS 2120	3
+MATH 240	Calculus III	4	APMA 2120	4
+MATH 250	Linear Algebra	4	APMA 3080	3
+$Johns Hopkins University
+MATH 302	Differential Equations w/App	4	APMA 2130	4
+$Montgomery College, Rockville
+CHEM 131	Prin of Chemistry I w/Lab	4	CHEM 1410/1411	3/1
+CHEM 132	Prin of Chemistry II w/Lab	4	CHEM 1420/1421	3/1
+MATH 280	Multivariable Calculus	4	APMA 2120	4
+MATH 284	Linear Algebra	3	APMA 3080	3
+$Townson University
+COSC 236	Intro to Comp Sci I	4	CS 1110	3
+MATH 274	Calculus II	4	APMA 1110	4
+MATH 275	Calculus III	4	APMA 2120	4
+MATH 330	Intro to Statistical Methods	4	APMA 3120	3
+MATH 374	Ordinary Diff Equations	4	APMA 2130	4
+PHYS 242	General Physics II	4	PHYS 2415/2419	3/1
+$United States Naval Academy
+EE 301	Electrical Fundamentals	4	ECE 2630	4
+SC 111	Found. Of CHEM I w/Lab	4	CHEM 1410/1411	3/1
+SC 112	Found. Of CHEM II w/Lab	 	CHEM 1420/1421	3/1
+SI 204	Intro to Comp Sci	4	CS 1110	3
+SI 221	Data Structures	3	CS 2100	3
+SM 122	Calculus II	4	APMA 1110	4
+SM 212	Differential Equations	4	APMA 2130	4
+SM 221	Calculus III w/Vector Fields	4	APMA 2120	4
+SP 211	General Physics I	4	PHYS 1425/1429	3/1
+SP 212	General Physics II	4	PHYS 2415/2419	3/1
+$University of Maryland - Coll Park
+CHBE 101	Intro to Chem & Biomol Eng	3	CHE 2215	3
+CHBE 250	Comp Methods in Chem Eng	3	CHE 2216	3
+CHBE 301	Chem & Biomol Eng -Thermo	3	CHE 2202	3
+ENEE 324	Engineering Probability	3	APMA 3100	3
+MATH 141	Calculus II	4	APMA 1110	4
+MATH 241	Multivariable Calc. III	4	APMA 2120	4
+PHYS 141	Principles of Physics	4	PHYS 1425/1429	3/1
+PHYS 142	Principles of Physics	4	PHYS 2415/2419	3/1
+$Boston University
+CAS MA 225	Multivariable Calc. 	4	APMA 2120	4
+$Bunker Hill Community College
+PHY 252	College Physics II	4	PHYS 2415	3
+$University of Massachusetts - Amherst
+MATH 132	Calculus II	4	APMA 1110	4
+MATH 233	Multivariable Calculus	4	APMA 2120	4
+MATH 245	Differential Equations	4	APMA 2130	4
+ENG 230	Thermodynamics I	3	MAE 2100
+$University of Massachusetts - Boston
+PHYS 114	Fundamental of Physics II	4	PHYS 2415	3
+$University of Massachusetts - Lowell
+MATH 2310	Multivariable Calculus	4	APMA 2120	4
+PHYS 1440	Physics II	3	PHYS 2415	3
+$Michigan State University
+PHY 184B	University Physics II	4	PHYS 2415/2419	3/1
+$Mississippi State University
+PH 2223	Physics II	3	PHYS 2415 	3
+$Missouri Univ of Sci & Tech
+PHY 155	General Physics II w/Lab	4	PHYS 2415/2419	3/1
+$University of Missouri
+MATH 2000	Calculus III	5	APMA 2120	4
+$University of New Hampshire
+MATH 527	Differential Equations	4	APMA 2130	4
+$Brookdale Comm College
+PHYS 122	General Physics II	4	PHYS 2415/2419	3/1
+MATH 273	Calculus III	4	APMA 2120	4
+$Burlington Cty College
+MATH 220	Calculus III	4	APMA 2120	4
+$The College of New Jersey
+PHY 202	General Physics II	 	PHYS 2415	3
+$County College of Morris
+MAT 132	Calculus II	4	APMA 1110	4
+MAT 230	Calculus III	4	APMA 2120	4
+$New Jersey Institute of Tech
+MAT 302	Calculus II	4	APMA 1110	4
+MAT 303	Calculus III	4	APMA 2120	4
+$Borough of Manhattan Comm Coll
+MAT 302	Calculus II	4	APMA 1110	4
+MAT 303	Calculus III	4	APMA 2120	4
+$Farmingdale State College
+PHY 144	General Physics II (Calculus)	4	PHYS 2415/2419	3/1
+$Finger Lakes Comm College
+PHYS 152	University Physics II	4	PHYS 2415	3
+$Fordham University
+MATH 2004	Calculus III	4	APMA 2120	4
+PHYS 1702	Physics II	3	PHYS 2415	3
+PHYS 1512	Physics II Lab	1	PHYS 2419	1
+$Hofstra University
+MATH 072	Calculus II	4	APMA 1110	4
+MATH 073	Calculus III	4	APMA 2120	4
+PHYS 11A	General Physics I	3	PHYS 1425	3
+PHYS 11B	General Physics I Lab	1	PHYS 1429	1
+PHYS 12A 	General Physics II	3	PHYS 2415	3
+PHYS 12B	General Physics II Lab	1	PHYS 2419	1
+$Hudson Valley Comm College
+MATH 190	Calculus II	4	APMA 1110	4
+MATH 210	Calculus III	4	APMA 2120	4
+MATH 220	Differential Equations	4	APMA 2130	4
+$Laguardia Community College
+MAT 203	Calculus III	4	APMA 2120	4
+$Monroe Comm College
+MTH 211	Calculus II	4	APMA 1110	4
+MTH 212	Calculus III	4	APMA 2120	4
+MTH 220	Discrete Math	3	CS 2120	3
+MTH 225	Differential Equations	4	APMA 2130	4
+MTH 230	Linear Algebra	4	APMA 3080	3
+PHY 154	General Physics I w/Lab	4	PHYS 1425/1429	3/1
+PHY 155	General Physics II w/Lab	4	PHYS 2415/2419	3/1
+$Nassau Comm College
+MAT 123	Calculus II	4	APMA 1110	4
+MAT 225	Multivariable Calculus	4	APMA 2120	4
+$New York University
+MATH-UA 233	Theory of Probability	4	APMA 3100	3
+$Onondaga Community College
+MAT 263	Calculus III	4	APMA 2120	4
+$Purchase College State Univ
+MATH 1510	Calculus II	4	APMA 1110	4
+$Queensborough Comm College
+PH 422	General Calculus Physics B	5	PHYS 2415	3
+$Rensselaer Polytechnic Institute
+ENGR 2600	Modeling & Analysis Uncertainty	3	APMA 3110	3
+$Stony Brook University
+MATH 203	Calculus III	4	APMA 2120	4
+PHY 132	Physics II	3	PHYS 2415	3
+PHY 134	Physics II Lab	1	PHYS 2419	1
+$University of Rochester
+MATH 142	Calculus II	4	APMA 1110	4
+MATH 163	Differential Equations	4	APMA 2130	4
+$Westchester Community College
+MATH 230	Calculus III	4	APMA 2120	4
+$Durham Technical Comm College
+PHY 252	General Physics II	4	PHYS 2415/2419	3/1
+$NC State University
+CSC 116	Intro to Comp. Sci	3	CS 1110	3
+MA 241	Calculus II	4	APMA 1110	4
+MA 242	Multivariable Calculus	4	APMA 2120	4
+PY 205	Physics for Engineers & Sci I	3	PHYS 1425	3
+PY 206	Physics for Eng & Sci I Lab	1	PHYS 1429	1
+PY 208	Physics for Engineers & Sci II	3	PHYS 2415	3
+PY 209	Physics for Eng & Sci II Lab	1	PHYS 2419	1
+$Univ of North Carolina - Chapel Hill
+MA 241	Calculus II	4	APMA 1110	4
+MA 242	Multivariable Calculus	4	APMA 2120	4
+$UNC - Charlotte
+MATH 2164	Linear Algebra	3	APMA 3080	3
+$UNC - Greensboro
+CSC 130	Intro to Computer Science	3	CS 1110	3
+CSC 230	Elementary Data Structures & Algo	3	CS 2100	4
+CSC 250	Foundations of Computer Science I	3	CS 2120	3
+$Sinclaire Community College
+MAT 2280	Calculus II	5	APMA 1110	4
+$Shawnee State University
+MATH 2120	Calculus II	4	APMA 1110	4
+MATH 2130 	Calculus III 	4	APMA 2120	4
+MATH 2300  	Linear Algebra	3	APMA 3080	3
+MATH 3610  	Probability	3	APMA 3100	3
+$University of Cincinnati
+MATH 252	Calculus II	4	APMA 1110	4
+MATH 253	Calculus III	4	APMA 2120	4
+MATH 273	Differential Equations	5	APMA 2130	4
+$University of Toledo
+MATH 2850	Multivariable Calculus	4	APMA 2120	4
+$Xavier University
+MATH 171	Caculus II	4	APMA 1110	4
+MATH 220	Calculus III	4	APMA 2120	4
+MATH 240	Linear Algebra	3	APMA 3080	3
+MATH 256	Probability & Statistics	3	APMA 3110	3
+$Bucks County Comm College
+PHYS 122	Physics II	4	PHYS 2415/2419	3/1
+$C.C. of Allegheny County
+MAT 202 	Calculus 2	4	APMA 1110	4
+$Penn State University
+MATH 230	Calculus & Vector Analysis	4	APMA 2120	4
+MATH 251	Ordinary & Partial Diff Equat	4	APMA 2130	4
+ME 320	Fluid Mechanics	3	MAE 3210	3
+$Robert Morris University
+PHYS 2210	General Physics II	3	PHYS 2415	3
+$University of Pittsburgh
+PHYS 0175	BASIC PHYS, SCIENCE AND ENG 2	4	PHYS 2415	3
+$Westmoreland Cty Comm College
+MTH 271	Analytical Geom & Calc III	4	APMA 2120	4
+$Clemson University
+MATH 2060	Calculus of Several Variables	4	APMA 2120	4
+$University of South Carolina
+MATH 142	Calculus II	4	APMA 1110	4
+PHY 212	General Physics II	3	PHYS 2415	3
+$Furman University
+PHY 112	General Physics II	4	PHYS 2415/2419	3/1
+$Trident Technical College
+MAT 242	Differential Equations	4	APMA 2130	4
+$East Tennessee State University
+PHYS 2120	Tech PHYS II - Calc Based	4	PHYS 2415/2419	3/1
+$Nashville State Comm College
+PHYS 2120	Tech PHYS II - Calc Based	4	PHYS 2415/2419	3/1
+$SW Tennessee Comm College
+PHYS 2120	Physics II	4	PHYS 2415/2419	3/1
+$University of Tennessee
+AE 341	Fluid Mechanics	3	MAE 3210	3
+ME 344	Heat Transfer	3	MAE 3140	3
+$Houston Community College
+MATH 2433	Calculus III	4	APMA 2120	4
+$University of North Texas
+MATH 1710	Calculus I	4	APMA 1090	4
+MATH 1720	Calculus II	3	APMA 1110	4
+PHYS 2220	Electr & Magnet	3	PHYS 2415	3
+PHYS 2240	Elec & Magnet Lab	1	PHYS 2419	1
+$University of Texas, San Antonio
+MATH 1223	Calculus II	4	APMA 1110	4
+MATH 2214	Calculus III	4	APMA 2120	4
+PHY 1943	Physics for Scientists & Engr I	3	PHYS 1425	3
+PHY 1951	Physics I Lab	1	PHYS 1429	1
+PHY 1963	Physics for Scientists & Engr II	3	PHYS 2415	3
+PHY 1971	Physics II Lab	1	PHYS 2419	1
+$Virginia Community College System
+BIO 101	General Biology I	4	BIOL 2100	4
+CHM 111	General Chemistry I	4	CHEM 1410/1411	3/1
+CHM 112	General Chemistry II	4	CHEM 1420/1421	3/1
+CHM 241	Organic Chemistry I	3	CHEM 2410	3
+CHM 242	Organic Chemistry II	3	CHEM 2420	3
+CHM 245	Organic Chemistry Lab I	2	CHEM 2311	1
+CIV 280	Intro to Environmental Engineering	3	CE 2100	3
+(Has been replaced with CSC 221) CSC 201	Computer Science I	4	CS 1110	3
+(Has been replaced with CSC 223) CSC 202	Computer Science II	4	CS 2100	4
+CSC 205	Computer Organization	3	CS 2000T	3
+CSC 208	Intro to Discrete Structures	3	CS 2120	3
+CSC 215	Computer Systems	3	CS 2130	4*
+CSC 221	Intro to Problem Solving & Programm	3	CS 1110	3
+CSC 223	Data Structures & Analysis of Algo	4	CS 2100	4
+EGR 110	Engineering Graphics	2	MAE 2040	1
+EGR 115	Engineering Graphics	2	MAE 2040	1
+EGR 121/122	Foundations of Eng./Eng. Design	2/3	ENGR 1624	4
+EGR 125	Intro to Engineering Methods	4	CS 1110	3
+EGR 126	Computer Programming for Eng.	3	CS 1110	3
+EGR 140	Solid Mechanics (Statics)	3	CE/MAE 2300	3
+EGR 240	Engr. Mechanics - Statics	3	CE/MAE 2300	3
+EGR 245	Eng. Mechanics - Dynamics	3	CE/MAE 2320	3
+EGR 246	Mechanics of Materials	3	CE/MAE 2310	3
+EGR 248	Thermodynamics for Engrs.	3	MAE 2100	3
+EGR 251/255	Basic Electric Circuits I/Lab	3/1	ECE 2630	4
+EGR 265	Digital Elec. & Logic Design	4	ECE 2330	3
+EGR 270	Fund. of Computer Engr.	4	ECE 2330	3
+EGR 277	Digital Logic	4	ECE 2330	3
+MTH 263	Calculus I	4	APMA 1090	4
+MTH 264	Calculus II	4	APMA 1110	4
+MTH 265	Calculus III	4	APMA 2120	4
+MTH 266	Linear Algebra	3	APMA 3080	3
+MTH 267	Differential Equations	3	APMA 2130	4*
+MTH 288	Discrete Mathematics	3	CS 2120	3
+PHY 231	University Physics I	5	PHYS 1425/1429	3/1
+PHY 232	University Physics II	5	PHYS 2415/2419	3/1
+PHY 241	University Physics I	4	PHYS 1425/1429	3/1
+PHY 242	University Physics II	4	PHYS 2415/2419	3/1
+$Christopher Newport University
+CPSC 150/L	Intro to Programming	4	CS 1110	3
+PHYS 201	General Physics I	3	PHYS 1425	3
+PHYS 201L	General Physics I Lab	1	PHYS 1429	1
+PHYS 202	General Physics II	3	PHYS 2415	3
+PHYS 202L	General Physics II Lab	1	PHYS 2419	1
+$College of William & Mary
+MATH 112	Calculus II	4	APMA 1110	4
+MATH 213	Multivariable Calculus for Sci 	4	APMA 2120	4
+$George Mason University
+BIOL 103	Introductory Biology	4	BIOL 2100	4
+CHEM 211	General Chemistry I	3	CHEM 1410	3
+CHEM 213	General Chemistry I Lab	1	CHEM 1411	1
+CHEM 212	General Chemisty II	3	CHEM 1420	3
+CHEM 214	General Chemisty II Lab	1	CHEM 1421	1
+CS 112	Intro to Computer Programming	4	CS 1110	3
+CS 450	Database Concepts	3	CS 4750	3
+MATH 114	Analytic Geo & Calc II	4	APMA 1110	4
+MATH 203	Linear Algebra	3	APMA 3080	3
+MATH 351	Probability	3	APMA 3100	3
+PHYS 160	University Physics I	3	PHYS 1425	3
+PHYS 161	University Physics I Lab	1	PHYS 1429	1
+SYST 101	Understanding Systems Engr	3	SYS 2001	3
+SYST 335	Discrete Sys Modeling & Simulation	3	SYS 3062	3
+$James Madison University
+MATH 236	Calculus II	4	APMA 1110	4
+MATH 237	Calculus III	4	APMA 2120	4
+$Old Dominion University
+CHEM 121N	Found. Of Chemistry I	3	CHEM 1410	3
+CHEM 122N	Found. Of Chemistry I Lab	1	CHEM 1411	1
+CHEM 123N	Found. Of Chemistry II	3	CHEM 1420	3
+CHEM 124N	Found. Of Chemistry II Lab	1	CHEM 1421	1
+MATH 212	Calculus II	4	APMA 1110	4
+MATH 312	Calculus III	4	APMA 2120	4
+MATH 316	Intro Linear Algebra	3	APMA 3080	3
+PHYS 231N	University Physics I	4	PHYS 1425/1429	3/1
+PHYS 232N	University Physics II	4	PHYS 2415/2419	3/1
+$Virginia Commonwealth Univ.
+CHEM 101	General Chemistry	3	CHEM 1410	3
+CHEZ 101	General Chemistry Lab I	1	CHEM 1411	1
+CHEM 102	General Chemistry II	3	CHEM 1420	3
+CHEZ 102	General Chemistry Lab II	1	CHEM 1421	1
+ENGR 101	Intro to Engineering	4	ENGR 1624	4
+MATH 201	Calculus with Analytic Geom.	4	APMA 1110	4
+MATH 307	Multivariable Calculus	4	APMA 2120	4
+MATH 310	Linear Algebra	3	APMA 3080	3
+PHYS 207	University Physics I	5	PHYS 1425/1429	3/1
+PHYS 208	University Physics II	5	PHYS 2415/2419	3/1
+$Virginia Tech
+CHEM 1035	General Chemistry	3	CHEM 1410	3
+CHEM 1045	General Chemistry Lab	1	CHEM 1411	1
+CHEM 1036	General Chemistry	3	CHEM 1420	3
+CHEM 1046	General Chemistry Lab	1	CHEM 1421	1
+PHYS 2305	Found. Of Physics I	4	PHYS 1425/1429	3/1
+PHYS 2306	Found. Of Physics II	4	PHYS 2415/2419	3/1
+$University of Wisconsin
+MAT 222	Calculus & Analytical Geo II	5	APMA 1110	4
+MAT 223	Calculus & Analytical Geo III	4	APMA 2120	4
+$End

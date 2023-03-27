@@ -100,7 +100,6 @@ def transfer(request):
                 countIter+=1
                 while lines[countIter][0] != "$":
                     data = lines[countIter].strip('\n').split('\t')
-                    print(lines[countIter])
                     t = Transfer(transferClass=data[0], title=data[1], transferCredits=data[2], UVAClass=data[3], UVACredits=data[4])
                     t.save()
                     countIter+=1
