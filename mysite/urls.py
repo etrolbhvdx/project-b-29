@@ -30,9 +30,11 @@ urlpatterns = [
     path('home/', views.login_handler),
     path('home/seas/', views.SeasReqView.as_view()),
     path('home/seas/results', views.SeasSearchView.as_view()),
+    path('home/clas/results', views.SeasSearchView.as_view()),
     path('home/seas/equivalencies', views.SeasTransferView.as_view()),
     path('home/clas/', views.ClasView.as_view()),
     path('home/seas/post', views.post),
+    path('home/clas/search', views.search),
     path('home/seas/search', views.search),
     path('home/seas/transfer', views.transfer)
 ]

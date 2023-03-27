@@ -18,13 +18,6 @@
         <th>{{ offering.name }}</th>
         <th>{{ offering.day }}</th>
         <th>{{ offering.enrollment }}</th>
-        <th>
-            <form>
-                {% csrf_token %}
-                <fieldset>
-                    <input type="submit" value="Add Class">
-                </fieldset>
-            </form></th>
     </tr>
 {% endfor %}
 </table>

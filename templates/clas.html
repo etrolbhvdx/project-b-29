@@ -6,5 +6,85 @@
 </head>
 <body>
     <h1>Welcome to the UVA Arts and Sciences Transfer Site</h1>
+    <h2>The rules</h2>
+<p>Before submitting requests, please read <em>The Rules</em>, as outlined below:</p>
+<ol>
+    <li>
+        Permission to transfer credit is not granted to students whose grade point average is less than 2.0,
+        who withdrew from the College within the last ten days of the prior semester,
+        who are currently under suspension, or who are on an Honor Leave of Absence.
+        A 2.5 cumulative GPA is required for study abroad.
+    </li>
+    <li>
+        Credit is allowed only for those courses in which a grade of C or better has been earned.
+        Some programs may require a grade of B or better.
+        Approval to take courses on a pass/fail basis must also be obtained prior to taking the courses.
+        Courses in which "pass" or "credit" (CR) grades are received must be certified as equivalent to a
+        grade of C or higher to be accepted.
+    </li>
+    <li>
+        Only 60 credits of transfer from other universities, foreign study, advanced placement,
+        or dual enrollment may count toward the 120 credits needed for the B.A. or B.S. degree in the College.
+        Subject to these restrictions, the credits completed elsewhere with a grade of C or better
+        and approved as described above will be transferred toward the degree. In the College,
+        the amount of transfer credit awarded and the number of full-time semesters previously
+        completed determines academic level.
+    </li>
+</ol>
+<h2>Search for classes by subject</h2>
+<form action="search" method="post">
+{% csrf_token %}
+<fieldset>
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+    <label for="search">This search will return all sections of all classes for a given subject</label>
+    <select id="search" name="search">
+        <option value="AAS">African-American and African Studies</option>
+        <option value="AMST">American Studies</option>
+        <option value="ANTH">Anthropology</option>
+        <option value="ARAB">Arabic</option>
+        <option value="ARAD">Arts Administration</option>
+        <option value="ARAH">History of Art and Architecture</option>
+        <option value="ARCY">Archaeology</option>
+        <option value="ARTH">History of Art</option>
+        <option value="ARTR">Arabic in Translation</option>
+        <option value="ARTS">Studio Art</option>
+        <option value="ASL">American Sign Language</option>
+        <option value="ASTR">Astronomy</option>
+        <option value="BIOL">Biology</option>
+        <option value="CASS">College Art Scholars Seminar</option>
+        <option value="CHEM">Chemistry</option>
+        <option value="CHIN">Chinese</option>
+        <option value="CHTR">Chinese in Translation</option>
+        <option value="CLAS">Classics</option>
+        <option value="COGS">Cognitive Science</option>
+        <option value="COLA">College Advising Seminar</option>
+        <option value="CREO">Creole</option>
+        <option value="DANC">Dance</option>
+        <option value="DEM">Democracy Initiative</option>
+        <option value="DH">Digital Humanities</option>
+        <option value="DRAM">Drama</option>
+        <option value="EALC">East Asian Languages, Literatures, and Cultures</option>
+        <option value="EAST">East Asian Studies</option>
+        <option value="ECON">Economics</option>
+        <option value="EGMT">Engagement</option>
+        <option value="ELA">Engaging the Liberal Arts</option>
+        <option value="ENCW">English-Creative Writing</option>
+        <option value="ENGL">English Literature</option>
+        <option value="ENWR">English-Academic, Professional, & Creative Writing</option>
+        <option value="ETP">Environmental Thought and Practice</option>
+        <option value="EURS">European Studies</option>
+        <option value="EVAT">Environmental Sciences-Atmospheric Sciences</option>
+        <option value="EVEC">Environmental Sciences-Ecology</option>
+        <option value="EVGE">Environmental Sciences-Geosciences</option>
+        <option value="EVHY">Environmental Sciences-Hydrology</option>
+        <option value="EVSC">Environmental Sciences</option>
+        <option value="FREN">French</option>
+        <option value="GCCS">Global Commerce in Culture and Society</option>
+        <option value="GDS">Global Development Studies</option>
+    </select>
+    <input type="submit" name="Submit">
+</fieldset>
+</form>
+<a href="/home">Go back home</a>
 </body>
 </html>

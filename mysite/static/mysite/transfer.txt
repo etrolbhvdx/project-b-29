@@ -39,7 +39,7 @@ MATH 2110	Multivariable Calculus	4	APMA 2120	4
 MATH 3160	Probability	4	APMA 3100	3
 MATH 3435	Differential Equations	4	APMA 2130	4
 $University of Hartford
-Intro to Computer Prog	4	CS 1110	3
+CS 114	Intro to Computer Prog	4	CS 1110	3
 M 145	Calculus II	4	APMA 1110	4
 M 220	Linear Algebra	3	APMA 3080	3
 $Delaware State University
@@ -183,7 +183,7 @@ $University of Massachusetts - Amherst
 MATH 132	Calculus II	4	APMA 1110	4
 MATH 233	Multivariable Calculus	4	APMA 2120	4
 MATH 245	Differential Equations	4	APMA 2130	4
-ENG 230	Thermodynamics I	3	MAE 2100
+ENG 230	Thermodynamics I	3	MAE 2100	3
 $University of Massachusetts - Boston
 PHYS 114	Fundamental of Physics II	4	PHYS 2415	3
 $University of Massachusetts - Lowell

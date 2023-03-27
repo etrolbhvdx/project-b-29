@@ -14,7 +14,37 @@
 {% endfor %}
 </ul>
 {% else %}
+<h2>The rules</h2>
+<p>Before submitting requests, please read <em>The Rules</em>, as outlined below:</p>
+<ol>
+    <li>
+        Students who wish to receive credit for courses <em>not</em> listed here should email the course syllabus
+        to Jesse Rogers, jr7up@virginia.edu, to ensure that it satisfies university requirements. This should be done
+        <em>before</em> students enroll in any such course.
+    </li>
+    <li>
+        Students can receive transfer credit for <em>no more than</em> 50 percent of their degree requirements.
+    </li>
+    <li>
+        Students must earn a grade of 'C' or higher to receive transfer credit for an approved course. However,
+        grades from transferred courses do not affect the student's cumulative grade point average.
+    </li>
+    <li>
+        Students on a leave of absence may not transfer in credit without prior approval
+        from the Assiociate Dean for Undergraduate Affairs.
+    </li>
+    <li>
+        Students who wish to transfer credit for physics lab course (PHYS 1429 or PHYS 2419) must complete the approved
+        course in-person. Lab transfer credit will not be awarded for online courses.
+    </li>
+    <li>
+        Current students must request an official transcript after the course is completed and a final grade is posted.
+        Official electronic transcripts can be sent from the college or university to jr7up@virginia.edu,
+        or have an official transcript sent to the address below.
+    </li>
+</ol>
 <h2>Submit a Request to Transfer Credit</h2>
+<p>All requests will be sent to a system administrator, who will review it and post the result.</p>
 <form action="post" method="post">
 {% csrf_token %}
 <fieldset>
@@ -180,5 +210,6 @@
 </fieldset>
 </form>
 {% endif %}
+<a href="/home">Go back home</a>
 </body>
 </html>
