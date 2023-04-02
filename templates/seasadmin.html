@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UVA SEAS Transfer Site</title>
+</head>
+<body>
+<h1>Welcome to the UVA Engineering Transfer Site</h1>
+{% for message in object_list %}
+    <li>{{ message }}</li>
+{% endfor %}
+<form action="approveTransfer" method="post">
+    {% csrf_token %}
+    <button>Approve first request</button>
+</form>
+<form action="denyTransfer" method="post">
+    {% csrf_token %}
+    <button>Deny first request</button>
+</form>
+</ul>
+<h2>Submit a Request to Transfer Credit</h2>
+<form action="post" method="post">
+{% csrf_token %}
+<fieldset>
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+    <label for="commentsInput">Please Indicate Your Transfer Request Here</label>
+    <input type="text" name = "message" id="commentsInput" placeholder="Enter Class Name">
+    <input type="text" name = "message2" id="other" placeholder="Enter School">
+    <input type="text" name = "message3" id="equal" placeholder="Enter Uva Equivalency">
+    <input type="submit" name="Submit">
+    <small id="commentsHelp">Notice: Decisions will be processed in no more than 24 business hours</small>
+</fieldset>
+</form>
+<h2>Search for classes by subject</h2>
+<form action="search" method="post">
+{% csrf_token %}
+<fieldset>
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+    <label for="search">This search will return all sections of all classes for a given subject</label>
+    <select id="search" name="search">
+        <option value="AM">Applied Mechanics</option>
+        <option value="APMA">Applied Mathematics</option>
+        <option value="BME">Biomedical Engineering</option>
+        <option value="CE">Civil Engineering</option>
+        <option value="CHE">Chemical Engineering</option>
+        <option value="CPE">Computer Engineering</option>
+        <option value="CS">Computer Science</option>
+        <option value="ECE">Electrical and Computer Engineering</option>
+        <option value="ENGR">Engineering</option>
+        <option value="MAE">Mechanical and Aerospace Engineering</option>
+        <option value="MSE">Materials Science and Engineering</option>
+        <option value="STS">Science, Technology, and Society</option>
+        <option value="CHE">Chemical Engineering</option>
+        <option value="CPE">Computer Engineering</option>
+        <option value="SYS">Systems & Information Engineering</option>
+    </select>
+    <input type="submit" name="Submit">
+</fieldset>
+</form>
+<br>
+<a>To view classes from other schools that have been approved for transfer, please click</a>
+<a href="/home/seas/approved">here</a>
+</body>
+</html>

@@ -1,4 +1,57 @@
 {% load socialaccount %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% bootstrap_messages %}
+
+<style>
+.btn-ora {
+  background-color: #F84C1E;
+  border-color: #F84C1E;
+  color: white;
+}
+
+h1, h5 {
+  color: #232D4B;
+}
+
+.navbar-text {
+  color: white;
+}
+
+</style>
+
+<div class="d-flex flex-column mx-auto" style="width:40%;padding-top:190px">
+
+  <div class="d-flex justify-content-center">
+    <h1>Transfer Tracker UVA</h1>
+  </div>
+
+  <div class="d-flex justify-content-center">
+    <h5>Maximize Credit, Minimize Stress</h5>
+  </div>
+
+  {% if user.is_authenticated %}
+    <div class="d-flex justify-content-center" style="padding-top:15px">
+     <a href="/home/" class="btn btn-ora w-100">Get Started!</a>
+    </div>
+  {% else %}
+    <div class="d-flex justify-content-center" style="padding-top:15px">
+      <a href="{% provider_login_url 'google' %}" class="btn btn-ora w-100">Get Started!</a>
+    </div>
+  {% endif %}
+
+  <div class="d-xxl-flex">
+    <nav class="navbar fixed-bottom" style="background-color: #232D4B">
+      <span class="navbar-text">UVA CS 3240</span>
+      <span class="navbar-text ml-auto">Created by Anas Tariq, James O'Connell, Spencer Jackson, Alexander Davis, Zachary Mills </span>
+    </nav>
+  </div>
+
+</div>
+
+<!--
+</div>
 <html>
 <body>
 <h1> Login Screen </h1>
@@ -10,3 +63,4 @@
 {% endif %}
 </body>
 </html>
+-->

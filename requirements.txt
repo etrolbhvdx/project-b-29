@@ -11,3 +11,6 @@ django-heroku
 
 # for google login
 django-allauth
+
+#Bootstrap5
+django-bootstrap-v5

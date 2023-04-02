@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>Section</th>
+        <th>Course Name</th>
+        <th>Course Meetings</th>
+        <th>Free Seats</th>
+    </tr>
+{% for offering in object_list %}
+    <tr>
+        <th>{{ offering.section }}</th>
+        <th>{{ offering.name }}</th>
+        <th>{{ offering.day }}</th>
+        <th>{{ offering.enrollment }}</th>
+    </tr>
+{% endfor %}
+</table>
+
+<a href="/home/seas">Go back to search</a>
+</body>
+</html>
