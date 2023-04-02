@@ -5,7 +5,18 @@
 {% if user.is_authenticated %}
   <p>Welcome, You are logged in as {{ user.username }}</p>
     <footer>You are an admin</footer>
-  <a href="/logout/">Logout</a>
+    <h2>Transfer Credit</h2>
+  <p>To find out more information about transferring credits to UVA, please choose a school below</p>
+  <ul>
+    <li><a href ="/home/clas/">College of Arts and Sciences</a></li>
+    <li>School of Architecture</li>
+    <li>McIntire School of Commerce</li>
+    <li>School of Education and Human Development</li>
+    <li><a href ="/home/seas/admin/">School of Engineering and Applied Sciences</a></li>
+    <li>School of Nursing</li>
+    <li>Batten School of Leadership and Public Policy</li>
+  </ul>
+    <a href="/logout/">Logout</a>
 {% else %}
   <a href="{% provider_login_url 'google' %}">Login With Google</a>
 {% endif %}
