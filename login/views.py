@@ -1,12 +1,13 @@
+from django.conf import settings
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import Group, User
 from django.views import generic
 import requests
+from django.templatetags.static import static
 import json
 
-
-from .models import Message, Offering, ApprovedTransfer
+from .models import Message, Offering, Transfer, ApprovedTransfer
 from django.urls import reverse
 
 
@@ -46,6 +47,15 @@ class SeasSearchView(generic.ListView):
 
     def get_queryset(self):
         return Offering.objects.all()
+
+
+class SeasTransferView(generic.ListView):
+    model = Transfer
+    template_name = 'equivalencies.html'
+    fields = ['transferClass', 'title', 'transferCredits', 'UVAClass', 'UVACredits']
+
+    def get_queryset(self):
+        return Transfer.objects.all()
 
 
 class ApprovedTransferView(generic.ListView):
@@ -95,3 +105,30 @@ def isfull(n):
         return False
     else:
         return True
+
+
+def transfer(request):
+    Transfer.objects.all().delete()
+    index = request.POST.get("transfer", "")
+    listings = open('mysite/static/mysite/transfer.txt', 'r')
+    lines = listings.readlines()
+    max = len(lines)
+    count = 0
+    countIter = 0
+    while countIter < max:
+        if lines[countIter][0] == "$":
+            count+=1
+            if count == int(index):
+                countIter+=1
+                while lines[countIter][0] != "$":
+                    data = lines[countIter].strip('\n').split('\t')
+                    print(data)
+                    t = Transfer(transferClass=data[0], title=data[1], transferCredits=data[2], UVAClass=data[3], UVACredits=data[4])
+                    t.save()
+                    countIter+=1
+            countIter+=1
+        else:
+            countIter+=1
+
+    return HttpResponseRedirect('equivalencies')
+

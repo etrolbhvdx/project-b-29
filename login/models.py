@@ -28,6 +28,13 @@ class Offering(models.Model):
     def __str__(self):
         return self.section
 
+
+class Transfer(models.Model):
+    transferClass = models.CharField(max_length=200)
+    title = models.CharField(max_length=200)
+    transferCredits = models.CharField(max_length=200)
+    UVAClass = models.CharField(max_length=200)
+    UVACredits = models.CharField(max_length=200)
 class ApprovedTransfer(models.Model):
     class_name = models.CharField(max_length=200)
     school_name = models.CharField(max_length=200, default="uva")

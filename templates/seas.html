@@ -62,6 +62,504 @@ h1, h2 {
         <h1>Welcome to the UVA Engineering Transfer Site</h1>
     </div>
 
+    <div class="d-flex" style="padding-top:20px;padding-left:10px">
+        <h2>Transfer Guidelines</h2>
+    </div>
+
+    <div class="d-flex justify-content-center" style="padding-top:20px">
+        <ol>
+            <li>
+                Students who wish to receive credit for courses <em>not</em> listed here should email the course syllabus
+                to Jesse Rogers, jr7up@virginia.edu, to ensure that it satisfies university requirements. This should be done
+                <em>before</em> students enroll in any such course.
+            </li>
+            <li>
+                Students can receive transfer credit for <em>no more than</em> 50 percent of their degree requirements.
+            </li>
+            <li>
+                Students must earn a grade of 'C' or higher to receive transfer credit for an approved course. However,
+                grades from transferred courses do not affect the student's cumulative grade point average.
+            </li>
+            <li>
+                Students on a leave of absence may not transfer in credit without prior approval
+                from the Assiociate Dean for Undergraduate Affairs.
+            </li>
+            <li>
+                Students who wish to transfer credit for physics lab course (PHYS 1429 or PHYS 2419) must complete the approved
+                course in-person. Lab transfer credit will not be awarded for online courses.
+            </li>
+            <li>
+                Current students must request an official transcript after the course is completed and a final grade is posted.
+                Official electronic transcripts can be sent from the college or university to jr7up@virginia.edu,
+                or have an official transcript sent to the address below.
+            </li>
+        </ol>
+    </div>
+
+    <div class="d-flex" style="padding-top:40px;padding-left:10px">
+        <h2>Submit a Request to Transfer Credit</h2>
+    </div>
+
+    <div class="d-flex" style="padding-top:20px;padding-left:10px">
+        <form action="post" method="post">
+            {% csrf_token %}
+            <fieldset>
+                {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+                <label for="commentsInput">Please Indicate Your Transfer Request Here</label>
+                <input type="text" name = "message" id="commentsInput" placeholder="Enter Class Name">
+                <input type="text" name = "message2" id="other" placeholder="Enter School">
+                <input type="text" name = "message3" id="equal" placeholder="Enter Uva Equivalency">
+                <button type="submit" class="btn btn-ora">
+                    Submit
+                </button>
+            </fieldset>
+        </form>
+    </div>
+
+    <div class="d-flex" style="padding-left:10px">
+        <small id="commentsHelp">Notice: Decisions will be processed in no more than 24 business hours</small>
+    </div>
+
+    <div class="d-flex" style="padding-top:60px;padding-left:10px">
+        <h2>Search for Classes by Subject</h2>
+    </div>
+
+    <div class="d-flex" style="padding-top:20px;padding-left:10px">
+        <form action="search" method="post">
+            {% csrf_token %}
+            <fieldset>
+                {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+                <label for="search">This search will return all sections of all classes for a given subject</label>
+                <select id="search" name="search">
+                    <option value="AM">Applied Mechanics</option>
+                    <option value="APMA">Applied Mathematics</option>
+                    <option value="BME">Biomedical Engineering</option>
+                    <option value="CE">Civil Engineering</option>
+                    <option value="CHE">Chemical Engineering</option>
+                    <option value="CPE">Computer Engineering</option>
+                    <option value="CS">Computer Science</option>
+                    <option value="ECE">Electrical and Computer Engineering</option>
+                    <option value="ENGR">Engineering</option>
+                    <option value="MAE">Mechanical and Aerospace Engineering</option>
+                    <option value="MSE">Materials Science and Engineering</option>
+                    <option value="STS">Science, Technology, and Society</option>
+                    <option value="CHE">Chemical Engineering</option>
+                    <option value="CPE">Computer Engineering</option>
+                    <option value="SYS">Systems & Information Engineering</option>
+                </select>
+                <button type="submit" class="btn btn-ora" style="padding-left:10px">
+                    Submit
+                </button>
+            </fieldset>
+        </form>
+    </div>
+
+    <div class="d-flex" style="padding-top:30px;padding-left:10px;width:100%">
+        <h2>Search for Approved Classes From Other Schools</h2>
+    </div>
+
+    <div class="d-flex" style="padding-top:20px;padding-left:10px;padding-bottom:10px">
+        <form action="transfer" method="post">
+            {% csrf_token %}
+            <fieldset>
+                {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+                <label for="transfer">This search will return all transfer equivalencies for a given university</label>
+                <select id="transfer" name="transfer">
+                    <option value=1>Auburn University</option>
+                    <option value=2>Northern Arizona University</option>
+                    <option value=3>University of Central Arkansas</option>
+                    <option value=4>CSU - Dominguez Hills</option>
+                    <option value=5>Fullerton College</option>
+                    <option value=6>Palomar Comm College</option>
+                    <option value=7>Stanford University</option>
+                    <option value=8>UC - Berkeley</option>
+                    <option value=9>Front Range Comm College</option>
+                    <option value=10>University of Colorado - Boulder</option>
+                    <option value=11>Eastern Connecticut State Univ</option>
+                    <option value=12>Fairfield University</option>
+                    <option value=13>University of Connecticut</option>
+                    <option value=14>University of Hartford</option>
+                    <option value=15>Delaware State University</option>
+                    <option value=16>Stanton Comm College</option>
+                    <option value=17>University of Delaware</option>
+                    <option value=18>Edison State College</option>
+                    <option value=19>Embry-Riddle Aeronautical Univ</option>
+                    <option value=20>Florida Atlantic University</option>
+                    <option value=21>Florida State University</option>
+                    <option value=22>Manatee Comm Coll-Bradenton</option>
+                    <option value=23>University of Florida</option>
+                    <option value=24>Georgia Institute of Technology</option>
+                    <option value=25>Georgia Perimeter Coll-Decatur</option>
+                    <option value=26>Georgia State University</option>
+                    <option value=27>Shorter University</option>
+                    <option value=28>Southern Polytechnic State Univ</option>
+                    <option value=29>University of Hawaii</option>
+                    <option value=30>Boise State University</option>
+                    <option value=31>College of DuPage</option>
+                    <option value=32>College of Lake County</option>
+                    <option value=33>Loyola University of Chicago</option>
+                    <option value=34>Oakton Comm College-Des Plaines</option>
+                    <option value=35>University of Illinois-Urbana</option>
+                    <option value=36>College of Lake Cty-Grays Lake</option>
+                    <option value=37>Johnson Cty Comm College</option>
+                    <option value=38>Louisiana State University</option>
+                    <option value=39>Louisiana Tech</option>
+                    <option value=40>Tulane University</option>
+                    <option value=41>University of New Orleans</option>
+                    <option value=42>Anne Arundel Comm College</option>
+                    <option value=43>College of Southern Maryland</option>
+                    <option value=44>Howard Comm College</option>
+                    <option value=45>Johns Hopkins University</option>
+                    <option value=46>Montgomery College, Rockville</option>
+                    <option value=47>Townson University</option>
+                    <option value=48>United States Naval Academy</option>
+                    <option value=49>University of Maryland - Coll Park</option>
+                    <option value=50>Boston University</option>
+                    <option value=51>Bunker Hill Community College</option>
+                    <option value=52>University of Massachusetts - Amherst</option>
+                    <option value=53>University of Massachusetts - Boston</option>
+                    <option value=54>University of Massachusetts - Lowell</option>
+                    <option value=55>Michigan State University</option>
+                    <option value=56>Mississippi State University</option>
+                    <option value=57>Missouri Univ of Sci & Tech</option>
+                    <option value=58>University of Missouri</option>
+                    <option value=59>University of New Hampshire</option>
+                    <option value=60>Brookdale Comm College</option>
+                    <option value=61>Burlington Cty College</option>
+                    <option value=62>The College of New Jersey</option>
+                    <option value=63>County College of Morris</option>
+                    <option value=64>New Jersey Institute of Tech</option>
+                    <option value=65>Borough of Manhattan Comm Coll</option>
+                    <option value=66>Farmingdale State College</option>
+                    <option value=67>Finger Lakes Comm College</option>
+                    <option value=68>Fordham University</option>
+                    <option value=69>Hofstra University</option>
+                    <option value=70>Hudson Valley Comm College</option>
+                    <option value=71>Laguardia Community College</option>
+                    <option value=72>Monroe Comm College</option>
+                    <option value=73>Nassau Comm College</option>
+                    <option value=74>New York University</option>
+                    <option value=75>Onondaga Community College</option>
+                    <option value=76>Purchase College State Univ</option>
+                    <option value=77>Queensborough Comm College</option>
+                    <option value=78>Rensselaer Polytechnic Institute</option>
+                    <option value=79>Stony Brook University</option>
+                    <option value=80>University of Rochester</option>
+                    <option value=81>Westchester Community College</option>
+                    <option value=82>Durham Technical Comm College</option>
+                    <option value=83>NC State University</option>
+                    <option value=84>Univ of North Carolina - Chapel Hill</option>
+                    <option value=85>UNC - Charlotte</option>
+                    <option value=86>UNC - Greensboro</option>
+                    <option value=87>Sinclaire Community College</option>
+                    <option value=88>Shawnee State University</option>
+                    <option value=89>University of Cincinnati</option>
+                    <option value=90>University of Toledo</option>
+                    <option value=91>Xavier University</option>
+                    <option value=92>Bucks County Comm College</option>
+                    <option value=93>C.C. of Allegheny County</option>
+                    <option value=94>Penn State University</option>
+                    <option value=95>Robert Morris University</option>
+                    <option value=96>University of Pittsburgh</option>
+                    <option value=97>Westmoreland Cty Comm College</option>
+                    <option value=98>Clemson University</option>
+                    <option value=99>University of South Carolina</option>
+                    <option value=100>Furman University</option>
+                    <option value=101>Trident Technical College</option>
+                    <option value=102>East Tennessee State University</option>
+                    <option value=103>Nashville State Comm College</option>
+                    <option value=104>SW Tennessee Comm College</option>
+                    <option value=105>University of Tennessee</option>
+                    <option value=106>Houston Community College</option>
+                    <option value=107>University of North Texas</option>
+                    <option value=108>University of Texas, San Antonio</option>
+                    <option value=109>Virginia Community College System</option>
+                    <option value=110>Christopher Newport University</option>
+                    <option value=111>College of William & Mary</option>
+                    <option value=112>George Mason University</option>
+                    <option value=113>James Madison University</option>
+                    <option value=114>Old Dominion University</option>
+                    <option value=115>Virginia Commonwealth Univ.</option>
+                    <option value=116>Virginia Tech</option>
+                    <option value=117>University of Wisconsin</option>
+                </select>
+                <button type="submit" class="btn btn-ora" style="padding-left:10px">
+                    Submit
+                </button>
+            </fieldset>
+        </form>
+    </div>
+
+    <div class="d-xxl-flex">
+        <nav class="navbar" style="background-color: #232D4B">
+          <span class="navbar-text" style="padding-left:5px">UVA CS 3240</span>
+          <span class="navbar-text ml-auto" style="padding-right:5px">Created by Anas Tariq, James O'Connell, Spencer Jackson, Alexander Davis, Zachary Mills </span>
+        </nav>
+    </div>
+
+    {% else %}
+      <a href="{% provider_login_url 'google' %}">Login With Google</a>
+
+    {% endif %}
+
+</div>
+
+</body>
+</html>
+
+
+
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UVA SEAS Transfer Site</title>
+</head>
+<body>
+<h1>Welcome to the UVA Engineering Transfer Site</h1>
+{% if user.is_admin %}
+<h2>Student requests</h2>
+<ul>
+{% for message in object_list %}
+    <li>{{ message.message_text }}</li>
+{% endfor %}
+</ul>
+{% else %}
+<h2>The rules</h2>
+<p>Before submitting requests, please read <em>The Rules</em>, as outlined below:</p>
+<ol>
+    <li>
+        Students who wish to receive credit for courses <em>not</em> listed here should email the course syllabus
+        to Jesse Rogers, jr7up@virginia.edu, to ensure that it satisfies university requirements. This should be done
+        <em>before</em> students enroll in any such course.
+    </li>
+    <li>
+        Students can receive transfer credit for <em>no more than</em> 50 percent of their degree requirements.
+    </li>
+    <li>
+        Students must earn a grade of 'C' or higher to receive transfer credit for an approved course. However,
+        grades from transferred courses do not affect the student's cumulative grade point average.
+    </li>
+    <li>
+        Students on a leave of absence may not transfer in credit without prior approval
+        from the Assiociate Dean for Undergraduate Affairs.
+    </li>
+    <li>
+        Students who wish to transfer credit for physics lab course (PHYS 1429 or PHYS 2419) must complete the approved
+        course in-person. Lab transfer credit will not be awarded for online courses.
+    </li>
+    <li>
+        Current students must request an official transcript after the course is completed and a final grade is posted.
+        Official electronic transcripts can be sent from the college or university to jr7up@virginia.edu,
+        or have an official transcript sent to the address below.
+    </li>
+</ol>
+<h2>Submit a Request to Transfer Credit</h2>
+<p>All requests will be sent to a system administrator, who will review it and post the result.</p>
+<form action="post" method="post">
+{% csrf_token %}
+<fieldset>
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+    <label for="commentsInput">Please Indicate Your Transfer Request Here</label>
+    <input type="text" name = "message" id="commentsInput" placeholder="Enter Request">
+    <input type="submit" name="Submit">
+    <small id="commentsHelp">Notice: Decisions will be processed in no more than 24 business hours</small>
+</fieldset>
+</form>
+<h2>Search for classes by subject</h2>
+<form action="search" method="post">
+{% csrf_token %}
+<fieldset>
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+    <label for="search">This search will return all sections of all classes for a given subject</label>
+    <select id="search" name="search">
+        <option value="AM">Applied Mechanics</option>
+        <option value="APMA">Applied Mathematics</option>
+        <option value="BME">Biomedical Engineering</option>
+        <option value="CE">Civil Engineering</option>
+        <option value="CHE">Chemical Engineering</option>
+        <option value="CPE">Computer Engineering</option>
+        <option value="CS">Computer Science</option>
+        <option value="ECE">Electrical and Computer Engineering</option>
+        <option value="ENGR">Engineering</option>
+        <option value="MAE">Mechanical and Aerospace Engineering</option>
+        <option value="MSE">Materials Science and Engineering</option>
+        <option value="STS">Science, Technology, and Society</option>
+        <option value="CHE">Chemical Engineering</option>
+        <option value="CPE">Computer Engineering</option>
+        <option value="SYS">Systems & Information Engineering</option>
+    </select>
+    <input type="submit" name="Submit">
+</fieldset>
+</form>
+<h2>Search for transfer credit</h2>
+<form action="transfer" method="post">
+{% csrf_token %}
+<fieldset>
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+    <label for="transfer">This search will return all transfer equivalencies for a given university</label>
+    <select id="transfer" name="transfer">
+        <option value=1>Auburn University</option>
+        <option value=2>Northern Arizona University</option>
+        <option value=3>University of Central Arkansas</option>
+        <option value=4>CSU - Dominguez Hills</option>
+        <option value=5>Fullerton College</option>
+        <option value=6>Palomar Comm College</option>
+        <option value=7>Stanford University</option>
+        <option value=8>UC - Berkeley</option>
+        <option value=9>Front Range Comm College</option>
+        <option value=10>University of Colorado - Boulder</option>
+        <option value=11>Eastern Connecticut State Univ</option>
+        <option value=12>Fairfield University</option>
+        <option value=13>University of Connecticut</option>
+        <option value=14>University of Hartford</option>
+        <option value=15>Delaware State University</option>
+        <option value=16>Stanton Comm College</option>
+        <option value=17>University of Delaware</option>
+        <option value=18>Edison State College</option>
+        <option value=19>Embry-Riddle Aeronautical Univ</option>
+        <option value=20>Florida Atlantic University</option>
+        <option value=21>Florida State University</option>
+        <option value=22>Manatee Comm Coll-Bradenton</option>
+        <option value=23>University of Florida</option>
+        <option value=24>Georgia Institute of Technology</option>
+        <option value=25>Georgia Perimeter Coll-Decatur</option>
+        <option value=26>Georgia State University</option>
+        <option value=27>Shorter University</option>
+        <option value=28>Southern Polytechnic State Univ</option>
+        <option value=29>University of Hawaii</option>
+        <option value=30>Boise State University</option>
+        <option value=31>College of DuPage</option>
+        <option value=32>College of Lake County</option>
+        <option value=33>Loyola University of Chicago</option>
+        <option value=34>Oakton Comm College-Des Plaines</option>
+        <option value=35>University of Illinois-Urbana</option>
+        <option value=36>College of Lake Cty-Grays Lake</option>
+        <option value=37>Johnson Cty Comm College</option>
+        <option value=38>Louisiana State University</option>
+        <option value=39>Louisiana Tech</option>
+        <option value=40>Tulane University</option>
+        <option value=41>University of New Orleans</option>
+        <option value=42>Anne Arundel Comm College</option>
+        <option value=43>College of Southern Maryland</option>
+        <option value=44>Howard Comm College</option>
+        <option value=45>Johns Hopkins University</option>
+        <option value=46>Montgomery College, Rockville</option>
+        <option value=47>Townson University</option>
+        <option value=48>United States Naval Academy</option>
+        <option value=49>University of Maryland - Coll Park</option>
+        <option value=50>Boston University</option>
+        <option value=51>Bunker Hill Community College</option>
+        <option value=52>University of Massachusetts - Amherst</option>
+        <option value=53>University of Massachusetts - Boston</option>
+        <option value=54>University of Massachusetts - Lowell</option>
+        <option value=55>Michigan State University</option>
+        <option value=56>Mississippi State University</option>
+        <option value=57>Missouri Univ of Sci & Tech</option>
+        <option value=58>University of Missouri</option>
+        <option value=59>University of New Hampshire</option>
+        <option value=60>Brookdale Comm College</option>
+        <option value=61>Burlington Cty College</option>
+        <option value=62>The College of New Jersey</option>
+        <option value=63>County College of Morris</option>
+        <option value=64>New Jersey Institute of Tech</option>
+        <option value=65>Borough of Manhattan Comm Coll</option>
+        <option value=66>Farmingdale State College</option>
+        <option value=67>Finger Lakes Comm College</option>
+        <option value=68>Fordham University</option>
+        <option value=69>Hofstra University</option>
+        <option value=70>Hudson Valley Comm College</option>
+        <option value=71>Laguardia Community College</option>
+        <option value=72>Monroe Comm College</option>
+        <option value=73>Nassau Comm College</option>
+        <option value=74>New York University</option>
+        <option value=75>Onondaga Community College</option>
+        <option value=76>Purchase College State Univ</option>
+        <option value=77>Queensborough Comm College</option>
+        <option value=78>Rensselaer Polytechnic Institute</option>
+        <option value=79>Stony Brook University</option>
+        <option value=80>University of Rochester</option>
+        <option value=81>Westchester Community College</option>
+        <option value=82>Durham Technical Comm College</option>
+        <option value=83>NC State University</option>
+        <option value=84>Univ of North Carolina - Chapel Hill</option>
+        <option value=85>UNC - Charlotte</option>
+        <option value=86>UNC - Greensboro</option>
+        <option value=87>Sinclaire Community College</option>
+        <option value=88>Shawnee State University</option>
+        <option value=89>University of Cincinnati</option>
+        <option value=90>University of Toledo</option>
+        <option value=91>Xavier University</option>
+        <option value=92>Bucks County Comm College</option>
+        <option value=93>C.C. of Allegheny County</option>
+        <option value=94>Penn State University</option>
+        <option value=95>Robert Morris University</option>
+        <option value=96>University of Pittsburgh</option>
+        <option value=97>Westmoreland Cty Comm College</option>
+        <option value=98>Clemson University</option>
+        <option value=99>University of South Carolina</option>
+        <option value=100>Furman University</option>
+        <option value=101>Trident Technical College</option>
+        <option value=102>East Tennessee State University</option>
+        <option value=103>Nashville State Comm College</option>
+        <option value=104>SW Tennessee Comm College</option>
+        <option value=105>University of Tennessee</option>
+        <option value=106>Houston Community College</option>
+        <option value=107>University of North Texas</option>
+        <option value=108>University of Texas, San Antonio</option>
+        <option value=109>Virginia Community College System</option>
+        <option value=110>Christopher Newport University</option>
+        <option value=111>College of William & Mary</option>
+        <option value=112>George Mason University</option>
+        <option value=113>James Madison University</option>
+        <option value=114>Old Dominion University</option>
+        <option value=115>Virginia Commonwealth Univ.</option>
+        <option value=116>Virginia Tech</option>
+        <option value=117>University of Wisconsin</option>
+    </select>
+    <input type="submit" name="Submit">
+</fieldset>
+</form>
+{% endif %}
+<a href="/home">Go back home</a>
+
+<div class="d-flex flex-column mx-auto">
+
+    {% if user.is_authenticated %}
+      <div class="d-xxl-flex">
+        <nav class="navbar navbar-expand navbar-dark" style="background-color: #232D4B">
+          <a class="navbar-brand" href="/home/">
+            <img src="https://dynaimage.cdn.cnn.com/cnn/c_fill,g_auto,w_1200,h_675,ar_16:9/https%3A%2F%2Fcdn.cnn.com%2Fcnnnext%2Fdam%2Fassets%2F200617130257-01-uva-reworked-logo-0616.jpg" width="50" height="30" class="d-inline-block align-top" alt="">
+            Transfer Tracker
+          </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  {{ user.username }}
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                    <li><a class="dropdown-item" href="/logout/">Logout</a></li>
+                    {% if user.is_admin %}
+                    <li><a class="dropdown-item" href="#">Admin</a></li>
+                    {% else %}
+                    <li><a class="dropdown-item" href="#">Student</a></li>
+                    {% endif %}
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+
+    <div class="d-flex justify-content-center" style="padding-top:20px">
+        <h1>Welcome to the UVA Engineering Transfer Site</h1>
+    </div>
+
     <div class="d-flex" style="padding-top:40px;padding-left:10px">
         <h2>Submit a Request to Transfer Credit</h2>
     </div>
@@ -142,3 +640,4 @@ h1, h2 {
 
 </body>
 </html>
+-->

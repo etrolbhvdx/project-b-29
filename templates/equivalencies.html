@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>Transfer Class</th>
+        <th>Course Name</th>
+        <th>Transfer Credits</th>
+        <th>UVA Class</th>
+        <th>UVA Credits</th>
+    </tr>
+{% for transfer in object_list %}
+    <tr>
+        <th>{{ transfer.transferClass }}</th>
+        <th>{{ transfer.title }}</th>
+        <th>{{ transfer.transferCredits }}</th>
+        <th>{{ transfer.UVAClass }}</th>
+        <th>{{ transfer.UVACredits }}</th>
+    </tr>
+{% endfor %}
+</table>
+
+<a href="/home/seas">Go back to search</a>
+</body>
