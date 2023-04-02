@@ -8,15 +8,16 @@
 <h1>Welcome to the UVA Engineering Transfer Site</h1>
 {% for message in object_list %}
     <li>{{ message }}</li>
+    <form action="approveTransfer?id={{message.id}}" method="post">
+        {% csrf_token %}
+        <button>Approve request</button>
+    </form>
+    <form action="denyTransfer?id={{message.id}}" method="post">
+        {% csrf_token %}
+        <button>Deny request</button>
+    </form>
 {% endfor %}
-<form action="approveTransfer" method="post">
-    {% csrf_token %}
-    <button>Approve first request</button>
-</form>
-<form action="denyTransfer" method="post">
-    {% csrf_token %}
-    <button>Deny first request</button>
-</form>
+
 </ul>
 <h2>Submit a Request to Transfer Credit</h2>
 <form action="post" method="post">
