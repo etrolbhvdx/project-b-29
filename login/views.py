@@ -65,14 +65,14 @@ class ApprovedTransferView(generic.ListView):
         return ApprovedTransfer.objects.all()
 
 def approveTransfer(request):
-    me=Message.objects.first()
+    me=Message.objects.get(id=request.GET.get('id'))
     req=ApprovedTransfer(class_name=me.message_text,school_name=me.school_name,equivalency_name=me.equivalency_name)
     me.delete()
     req.save()
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 def denyTransfer(request):
-    me = Message.objects.first()
+    me = Message.objects.get(id=request.GET.get('id'))
     me.delete()
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 

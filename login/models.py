@@ -35,6 +35,7 @@ class Transfer(models.Model):
     transferCredits = models.CharField(max_length=200)
     UVAClass = models.CharField(max_length=200)
     UVACredits = models.CharField(max_length=200)
+    
 class ApprovedTransfer(models.Model):
     class_name = models.CharField(max_length=200)
     school_name = models.CharField(max_length=200, default="uva")
