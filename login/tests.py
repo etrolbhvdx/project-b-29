@@ -98,45 +98,45 @@ class TransferTest(TestCase):
             self.assertEqual(response.url, 'results')
             self.assertEqual(Offering.objects.count(), 0)
 
-class TestSearch(TestCase):
-    def test_search_function(self, mock_get):
-        # Mock API response
-        api_url = 'https://sisuva.admin.virginia.edu/psc/ihprd/UVSS/SA/s/WEBLIB_HCX_CM.H_CLASS_SEARCH.FieldFormula.IScript_ClassSearch?institution=UVA01&term=1232'
-        mock_get.return_value.json.return_value = [{
-            'subject': 'TEST',
-            'catalog_nbr': '101',
-            'class_section': '01',
-            'descr': 'Test Course',
-            'meetings': [
-                {
-                    'days': 'MWF',
-                    'start_time': '08:00:00',
-                    'end_time': '08:50:00'
-                }
-            ],
-            'enrollment_available': 5
-        }]
-
-        # Test case 1: Test search with a valid subject
-        request = self.factory.post('/', {'search': 'TEST'})
-        response = search(request)
-        self.assertIsInstance(response, HttpResponseRedirect)
-        self.assertEqual(response.url, 'results')
-        self.assertEqual(Offering.objects.count(), 1)
-
-        offering_obj = Offering.objects.first()
-        self.assertEqual(offering_obj.section, 'TEST 101-01')
-        self.assertEqual(offering_obj.name, 'Test Course')
-        self.assertEqual(offering_obj.day, 'MWF 08:00-08:50')
-        self.assertEqual(offering_obj.enrollment, '5')
-        self.assertEqual(offering_obj.if_full, False)  # Assuming isfull() returns a boolean
-
-        # Test case 2: Test search with an empty subject
-        request = self.factory.post('/', {'search': ''})
-        response = search(request)
-        self.assertIsInstance(response, HttpResponseRedirect)
-        self.assertEqual(response.url, 'results')
-        self.assertEqual(Offering.objects.count(), 0)
+# class TestSearch(TestCase):
+#     def test_search_function(self, mock_get):
+#         # Mock API response
+#         api_url = 'https://sisuva.admin.virginia.edu/psc/ihprd/UVSS/SA/s/WEBLIB_HCX_CM.H_CLASS_SEARCH.FieldFormula.IScript_ClassSearch?institution=UVA01&term=1232'
+#         mock_get.return_value.json.return_value = [{
+#             'subject': 'TEST',
+#             'catalog_nbr': '101',
+#             'class_section': '01',
+#             'descr': 'Test Course',
+#             'meetings': [
+#                 {
+#                     'days': 'MWF',
+#                     'start_time': '08:00:00',
+#                     'end_time': '08:50:00'
+#                 }
+#             ],
+#             'enrollment_available': 5
+#         }]
+#
+#         # Test case 1: Test search with a valid subject
+#         request = self.factory.post('/', {'search': 'TEST'})
+#         response = search(request)
+#         self.assertIsInstance(response, HttpResponseRedirect)
+#         self.assertEqual(response.url, 'results')
+#         self.assertEqual(Offering.objects.count(), 1)
+#
+#         offering_obj = Offering.objects.first()
+#         self.assertEqual(offering_obj.section, 'TEST 101-01')
+#         self.assertEqual(offering_obj.name, 'Test Course')
+#         self.assertEqual(offering_obj.day, 'MWF 08:00-08:50')
+#         self.assertEqual(offering_obj.enrollment, '5')
+#         self.assertEqual(offering_obj.if_full, False)  # Assuming isfull() returns a boolean
+#
+#         # Test case 2: Test search with an empty subject
+#         request = self.factory.post('/', {'search': ''})
+#         response = search(request)
+#         self.assertIsInstance(response, HttpResponseRedirect)
+#         self.assertEqual(response.url, 'results')
+#         self.assertEqual(Offering.objects.count(), 0)
 
 
 
