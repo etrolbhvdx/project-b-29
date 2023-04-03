@@ -3,11 +3,12 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import Group, User
 from django.views import generic
+import os, fileinput
 import requests
 from django.templatetags.static import static
 import json
 
-from .models import Message, Offering, Transfer, ApprovedTransfer
+from .models import Message, Offering, Transfer, ApprovedTransfer, NewApprovedSchool
 from django.urls import reverse
 
 
@@ -28,6 +29,7 @@ def login_handler(request):
 def viewSeas(request):
     if request.user.groups.filter(name='Student').exists():
         return render(request,'seas.html')
+
 
 class SeasReqView(generic.ListView):
     model = Message
@@ -64,8 +66,55 @@ class ApprovedTransferView(generic.ListView):
     def get_queryset(self):
         return ApprovedTransfer.objects.all()
 
+
+class SeasView(generic.ListView):
+    model = NewApprovedSchool
+    template_name = 'seas.html'
+    fields = ['school_name', 'index']
+    def get_queryset(self):
+        return NewApprovedSchool.objects.all()
+
+
 def approveTransfer(request):
     me=Message.objects.get(id=request.GET.get('id'))
+    school = me.school_name
+    i = 118
+    flag= False
+    new = me.class_number + "\t" + me.message_text + "\t" + me.class_credits + "\t" + me.equivalency_name + \
+        "\t" + me.UVA_credits
+    listings = open('mysite/static/mysite/transfer.txt', 'r')
+    lines = listings.readlines()
+    listings.close()
+    with open('mysite/static/mysite/transfer.txt', 'w') as new_listings:
+        for line in lines:
+            if school in line:
+                new_listings.write(line)
+                new_listings.write(new)
+                new_listings.write('\n')
+                flag=True
+            else:
+                new_listings.write(line)
+    new_listings.close()
+
+    if not flag:
+        neq = NewApprovedSchool(school_name=school, index=i)
+        neq.save()
+        listings_2 = open('mysite/static/mysite/transfer.txt', 'r')
+        lines_2 = listings_2.readlines()
+        listings_2.close()
+        new_school = "$"+school
+        with open('mysite/static/mysite/transfer.txt', 'w') as new_listings_2:
+            for item in lines_2:
+                if "End" in item:
+                    new_listings_2.write(new_school)
+                    new_listings_2.write('\n')
+                    new_listings_2.write(new)
+                    new_listings_2.write('\n')
+                    new_listings_2.write(item)
+                else:
+                    new_listings_2.write(item)
+        new_listings_2.close()
+
     req=ApprovedTransfer(class_name=me.message_text,school_name=me.school_name,equivalency_name=me.equivalency_name)
     me.delete()
     req.save()
@@ -83,7 +132,9 @@ class ClasView(CreateView):
 
 
 def post(request):
-    m = Message(message_text=request.POST.get("message", ""),school_name=request.POST.get("message2",""),equivalency_name=request.POST.get("message3",""))
+    m = Message(class_number=request.POST.get("message4", ""), message_text=request.POST.get("message", ""),
+                class_credits=request.POST.get("message5", ""), UVA_credits=request.POST.get("message6", ""),
+                school_name=request.POST.get("message2", ""), equivalency_name=request.POST.get("message3", ""))
     m.save()
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
