@@ -446,4 +446,6 @@ PHYS 2306	Found. Of Physics II	4	PHYS 2415/2419	3/1
 $University of Wisconsin
 MAT 222	Calculus & Analytical Geo II	5	APMA 1110	4
 MAT 223	Calculus & Analytical Geo III	4	APMA 2120	4
+$UNCS
+CHEM 1036	General Chemistry	3	CHEM 1420	3
 $End
