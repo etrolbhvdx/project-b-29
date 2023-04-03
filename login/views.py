@@ -97,7 +97,7 @@ def approveTransfer(request):
     new_listings.close()
 
     if not flag:
-        neq = NewApprovedSchool(school_name=school, index=i)
+        neq = NewApprovedSchool(school_name=school, index=i+NewApprovedSchool.objects.count())
         neq.save()
         listings_2 = open('mysite/static/mysite/transfer.txt', 'r')
         lines_2 = listings_2.readlines()
