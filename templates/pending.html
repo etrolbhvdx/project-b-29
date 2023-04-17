@@ -54,11 +54,12 @@ h1, h2 {
         <h1>Pending Transfer Requests</h1>
     </div>
 
-    {% if object_list %}
+    {% if list %}
     <div class="d-flex" style="padding-top:20px;padding-left:10px">
-        {% for message in object_list %}
+        {% for message in list %}
             <div class="d-flex" style="padding-top:20px;padding-left:10px">
             <p style="padding-right:15px">{{ message }}</p>
+
     </div>
     {% endfor %}
     </div>

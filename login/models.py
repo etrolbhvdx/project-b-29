@@ -13,9 +13,10 @@ class Message(models.Model):
     message_text = models.CharField(max_length=200)
     school_name = models.CharField(max_length=200,default="uva")
     equivalency_name = models.CharField(max_length=200,default="None")
+    user=models.CharField(max_length=200,default="None")
 
     def __str__(self):
-        return "Class="+self.message_text+", School="+self.school_name+", Equivalency="+self.equivalency_name
+        return "Class="+self.message_text+", School="+self.school_name+", Equivalency="+self.equivalency_name+", user="+self.user
 
 
 class Offering(models.Model):

@@ -83,7 +83,7 @@ class ClasView(CreateView):
 
 
 def post(request):
-    m = Message(message_text=request.POST.get("message", ""),school_name=request.POST.get("message2",""),equivalency_name=request.POST.get("message3",""))
+    m = Message(message_text=request.POST.get("message", ""),school_name=request.POST.get("message2",""),equivalency_name=request.POST.get("message3",""),user=request.user)
     m.save()
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
@@ -140,3 +140,6 @@ class PendingView(generic.ListView):
     def get_queryset(self):
         return Message.objects.all()
 
+def pend(request):
+    pendlist=Message.objects.all().filter(user=request.user)
+    return render(request,'pending.html',{'list':pendlist})

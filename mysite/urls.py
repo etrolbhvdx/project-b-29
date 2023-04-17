@@ -47,5 +47,5 @@ urlpatterns = [
     path('home/seas/admin/search', views.search),
     path('home/seas/admin/approveTransfer',views.approveTransfer),
     path('home/seas/admin/denyTransfer',views.denyTransfer),
-    path('home/pending',views.PendingView.as_view()),
+    path('home/pending',views.pend),
 ]
