@@ -1,0 +1,65 @@
+{% load socialaccount %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+<style>
+.btn-ora {
+  background-color: #F84C1E;
+  border-color: #F84C1E;
+  color: white;
+}
+
+h1, h2 {
+  color: #232D4B;
+}
+
+.navbar-text {
+  color: white;
+}
+</style>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UVA Pending Transfers</title>
+</head>
+<div class="d-flex flex-column mx-auto">
+      <div class="d-xxl-flex">
+        <nav class="navbar navbar-expand navbar-dark" style="background-color: #232D4B">
+          <a class="navbar-brand" href="/home/">
+            <img src="https://dynaimage.cdn.cnn.com/cnn/c_fill,g_auto,w_1200,h_675,ar_16:9/https%3A%2F%2Fcdn.cnn.com%2Fcnnnext%2Fdam%2Fassets%2F200617130257-01-uva-reworked-logo-0616.jpg" width="50" height="30" class="d-inline-block align-top" alt="">
+            Transfer Tracker
+          </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  {{ user.username }}
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                    <li><a class="dropdown-item" href="/logout/">Logout</a></li>
+                    <li><a class="dropdown-item" href="#">Admin</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    {% if object_list %}
+    <div class="d-flex" style="padding-top:20px;padding-left:10px">
+        {% for message in object_list %}
+            <div class="d-flex" style="padding-top:20px;padding-left:10px">
+            <p style="padding-right:15px">{{ message }}</p>
+    </div>
+    {% endfor %}
+    </div>
+    {% else %}
+    <div class="d-flex" style="padding-top:20px;padding-left:10px">
+        <h2>There Are No Pending Requests</h2>
+    </div>
+    {% endif %}
+</div>

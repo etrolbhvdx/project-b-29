@@ -132,3 +132,11 @@ def transfer(request):
 
     return HttpResponseRedirect('equivalencies')
 
+class PendingView(generic.ListView):
+    model = Message
+    template_name = 'pending.html'
+    fields = ['message_text']
+#what does get_attr do
+    def get_queryset(self):
+        return Message.objects.all()
+
