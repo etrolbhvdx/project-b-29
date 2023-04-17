@@ -299,8 +299,45 @@ def freeSearch(request):
         t = Transfer(transferClass="No Results", title="", transferCredits="", UVAClass="", UVACredits="")
         t.save()
 
-
     return HttpResponseRedirect('equivalencies')
+
+
+def freeSearchAS(request):
+    Transfer_AS.objects.all().delete()
+    keyword = request.POST.get("searchNumAS", "")
+    contents = open('mysite/static/mysite/transfer_AS.txt', 'r')
+    line_data = contents.readlines()
+    num = len(line_data)
+    n = 0
+    internalCount = 0
+    newCount = 0
+    t = Transfer_AS(transferClass="No Results", title="", transferCredits="", UVAClass="", UVACredits="")
+    while n < num:
+        if line_data[n][0] == "$":
+            t = Transfer_AS(transferClass=line_data[n][1:], title="", transferCredits="", UVAClass="", UVACredits="")
+            n += 1
+            internalCount = 0
+        else:
+            if keyword.lower() in line_data[n].lower():
+                newCount += 1
+                new_data = line_data[n].strip('\n').split('\t')
+                s = Transfer_AS(transferClass=new_data[0], title=new_data[1], transferCredits=new_data[2],
+                             UVAClass=new_data[3],
+                             UVACredits=new_data[4])
+                internalCount += 1
+                if internalCount == 1:
+                    t.save()
+                    s.save()
+                else:
+                    s.save()
+                n += 1
+            else:
+                n += 1
+    if newCount == 0:
+        t = Transfer_AS(transferClass="No Results", title="", transferCredits="", UVAClass="", UVACredits="")
+        t.save()
+
+    return HttpResponseRedirect('ASequivalencies')
 
 def transfer_AS(request):
     Transfer_AS.objects.all().delete()
