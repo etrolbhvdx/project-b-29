@@ -91,6 +91,32 @@ h1, h2 {
         </ol>
     </div>
 
+    <div class="d-flex flex-column" style="padding-top:20px;padding-left:10px">
+        {% if object_list %}
+        <div class="d-flex" style="padding-top:20px">
+            <h2>Approve or Deny Requests</h2>
+        </div>
+        {% else %}
+        <div class="d-flex" style="padding-top:20px">
+            <h2>There Are No Pending Requests</h2>
+        </div>
+        {% endif %}
+
+        {% for message_AS in object_list %}
+        <div class="d-flex" style="padding-top:20px">
+            <p style="padding-right:15px">{{ message_AS }}</p>
+            <form action="approveTransfer_AS?id={{message_AS.id}}" method="post">
+                {% csrf_token %}
+                <button class="btn btn-ora">Approve request</button>
+            </form>
+            <form action="denyTransfer_AS?id={{message_AS.id}}" method="post" style="padding-left:10px">
+                {% csrf_token %}
+                <button class="btn btn-ora">Deny request</button>
+            </form>
+        </div>
+        {% endfor %}
+    </div>
+
     <div class="d-flex" style="padding-top:40px;padding-left:10px">
         <h2>Submit a Request to Transfer Credit</h2>
     </div>
@@ -115,93 +141,10 @@ h1, h2 {
         </form>
     </div>
 
-    <div class="d-flex" style="padding-left:10px">
+    <div class="d-flex" style="padding-left:10px;padding-bottom:30px">
         <small id="commentsHelp">Notice: Decisions will be processed in no more than 24 business hours</small>
     </div>
 
-    <div class="d-flex" style="padding-top:40px;padding-left:10px">
-        <h2>Search for Classes by Subject</h2>
-    </div>
-
-    <div class="d-flex" style="padding-top:20px;padding-left:10px">
-        <form action="search" method="post">
-            {% csrf_token %}
-            <fieldset>
-                {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
-                <label for="search">This search will return all sections of all classes for a given subject</label>
-                <select id="search" name="search">
-                    <option value="AAS">African-American and African Studies</option>
-                    <option value="AMST">American Studies</option>
-                    <option value="ANTH">Anthropology</option>
-                    <option value="ARAB">Arabic</option>
-                    <option value="ARAD">Arts Administration</option>
-                    <option value="ARAH">History of Art and Architecture</option>
-                    <option value="ARCY">Archaeology</option>
-                    <option value="ARTH">History of Art</option>
-                    <option value="ARTR">Arabic in Translation</option>
-                    <option value="ARTS">Studio Art</option>
-                    <option value="ASL">American Sign Language</option>
-                    <option value="ASTR">Astronomy</option>
-                    <option value="BIOL">Biology</option>
-                    <option value="CASS">College Art Scholars Seminar</option>
-                    <option value="CHEM">Chemistry</option>
-                    <option value="CHIN">Chinese</option>
-                    <option value="CHTR">Chinese in Translation</option>
-                    <option value="CLAS">Classics</option>
-                    <option value="COGS">Cognitive Science</option>
-                    <option value="COLA">College Advising Seminar</option>
-                    <option value="CREO">Creole</option>
-                    <option value="DANC">Dance</option>
-                    <option value="DEM">Democracy Initiative</option>
-                    <option value="DH">Digital Humanities</option>
-                    <option value="DRAM">Drama</option>
-                    <option value="EALC">East Asian Languages, Literatures, and Cultures</option>
-                    <option value="EAST">East Asian Studies</option>
-                    <option value="ECON">Economics</option>
-                    <option value="EGMT">Engagement</option>
-                    <option value="ELA">Engaging the Liberal Arts</option>
-                    <option value="ENCW">English-Creative Writing</option>
-                    <option value="ENGL">English Literature</option>
-                    <option value="ENWR">English-Academic, Professional, & Creative Writing</option>
-                    <option value="ETP">Environmental Thought and Practice</option>
-                    <option value="EURS">European Studies</option>
-                    <option value="EVAT">Environmental Sciences-Atmospheric Sciences</option>
-                    <option value="EVEC">Environmental Sciences-Ecology</option>
-                    <option value="EVGE">Environmental Sciences-Geosciences</option>
-                    <option value="EVHY">Environmental Sciences-Hydrology</option>
-                    <option value="EVSC">Environmental Sciences</option>
-                    <option value="FREN">French</option>
-                    <option value="GCCS">Global Commerce in Culture and Society</option>
-                    <option value="GDS">Global Development Studies</option>
-                </select>
-                <button type="submit" class="btn btn-ora" style="padding-left:10px">
-                    Submit
-                </button>
-            </fieldset>
-        </form>
-    </div>
-
-    <div class="d-flex" style="padding-top:30px;padding-left:10px;width:100%">
-        <h2>Search for Approved Classes From Other Schools</h2>
-    </div>
-
-    <div class="d-flex" style="padding-top:20px;padding-left:10px;padding-bottom:10px">
-        <form action="transfer_AS" method="post">
-            {% csrf_token %}
-            <fieldset>
-                {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
-                <label for="transfer_AS">This search will return all transfer equivalencies for a given university</label>
-                <select id="transfer_AS" name="transfer_AS">
-                    {% for newSchool in object_list %}
-                        <option value={{newSchool.index}}>{{ newSchool.school_name }}</option>
-                    {% endfor %}
-                </select>
-                <button type="submit" class="btn btn-ora" style="padding-left:10px">
-                    Submit
-                </button>
-            </fieldset>
-        </form>
-    </div>
 
     <div class="d-xxl-flex">
         <nav class="navbar" style="background-color: #232D4B">
@@ -214,7 +157,8 @@ h1, h2 {
     <a href="{% provider_login_url 'google' %}">Login With Google</a>
 
     {% endif %}
-</div>
 
+</div>
 </body>
 </html>
+

@@ -190,6 +190,7 @@ $University of Massachusetts - Lowell
 MATH 2310	Multivariable Calculus	4	APMA 2120	4
 PHYS 1440	Physics II	3	PHYS 2415	3
 $Michigan State University
+CS 1500	Intro to Programming	3	CS 1110	3
 PHY 184B	University Physics II	4	PHYS 2415/2419	3/1
 $Mississippi State University
 PH 2223	Physics II	3	PHYS 2415 	3
