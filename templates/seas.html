@@ -105,9 +105,12 @@ h1, h2 {
             <fieldset>
                 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
                 <label for="commentsInput">Please Indicate Your Transfer Request Here</label>
+                <input type="text" name = "message4"  id="classNum" placeholder="Enter Class Number">
                 <input type="text" name = "message" id="commentsInput" placeholder="Enter Class Name">
-                <input type="text" name = "message2" id="other" placeholder="Enter School">
+                <input type="text" name = "message5"  id="classCredits" placeholder="Enter Class Credits">
                 <input type="text" name = "message3" id="equal" placeholder="Enter Uva Equivalency">
+                <input type="text" name = "message6"  id="UVACredits" placeholder="Enter UVA Credits">
+                <input type="text" name = "message2" id="other" placeholder="Enter School">
                 <button type="submit" class="btn btn-ora">
                     Submit
                 </button>
@@ -281,6 +284,9 @@ h1, h2 {
                     <option value=115>Virginia Commonwealth Univ.</option>
                     <option value=116>Virginia Tech</option>
                     <option value=117>University of Wisconsin</option>
+                    {% for newSchool in object_list %}
+                        <option value={{newSchool.index}}>{{ newSchool.school_name }}</option>
+                    {% endfor %}
                 </select>
                 <button type="submit" class="btn btn-ora" style="padding-left:10px">
                     Submit
