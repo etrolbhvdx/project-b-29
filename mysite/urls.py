@@ -47,6 +47,7 @@ urlpatterns = [
     path('home/seas/admin/search', views.search),
     path('home/seas/admin/approveTransfer',views.approveTransfer),
     path('home/clas/approveTransfer_AS', views.approveTransfer_AS),
+    path('home/clas/denyTransfer_AS', views.denyTransfer_AS),
     path('home/clas/transfer_AS', views.transfer_AS),
     path('home/clas/ASequivalencies', views.ClasTransferView.as_view()),
     path('home/seas/admin/denyTransfer',views.denyTransfer),
