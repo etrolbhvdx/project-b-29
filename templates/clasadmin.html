@@ -24,56 +24,141 @@ h1, h2 {
     <meta charset="UTF-8">
     <title>UVA CLAS Transfer Site</title>
 </head>
-<body>
-    <h1>Welcome to the UVA Arts and Sciences Transfer Site</h1>
-    <h2>The rules</h2>
-<p>Before submitting requests, please read <em>The Rules</em>, as outlined below:</p>
-<ol>
-    <li>
-        Permission to transfer credit is not granted to students whose grade point average is less than 2.0,
-        who withdrew from the College within the last ten days of the prior semester,
-        who are currently under suspension, or who are on an Honor Leave of Absence.
-        A 2.5 cumulative GPA is required for study abroad.
-    </li>
-    <li>
-        Credit is allowed only for those courses in which a grade of C or better has been earned.
-        Some programs may require a grade of B or better.
-        Approval to take courses on a pass/fail basis must also be obtained prior to taking the courses.
-        Courses in which "pass" or "credit" (CR) grades are received must be certified as equivalent to a
-        grade of C or higher to be accepted.
-    </li>
-    <li>
-        Only 60 credits of transfer from other universities, foreign study, advanced placement,
-        or dual enrollment may count toward the 120 credits needed for the B.A. or B.S. degree in the College.
-        Subject to these restrictions, the credits completed elsewhere with a grade of C or better
-        and approved as described above will be transferred toward the degree. In the College,
-        the amount of transfer credit awarded and the number of full-time semesters previously
-        completed determines academic level.
-    </li>
-</ol>
 
-{% if object_list %}
-    <div class="d-flex" style="padding-top:20px;padding-left:10px">
-        <h2>Approve or Deny Requests</h2>
+
+<div class="d-flex flex-column mx-auto">
+    {% if user.is_authenticated %}
+      <div class="d-xxl-flex">
+        <nav class="navbar navbar-expand navbar-dark" style="background-color: #232D4B">
+          <a class="navbar-brand" href="/home/">
+            <img src="https://dynaimage.cdn.cnn.com/cnn/c_fill,g_auto,w_1200,h_675,ar_16:9/https%3A%2F%2Fcdn.cnn.com%2Fcnnnext%2Fdam%2Fassets%2F200617130257-01-uva-reworked-logo-0616.jpg" width="50" height="30" class="d-inline-block align-top" alt="">
+            Transfer Tracker
+          </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  {{ user.username }}
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                    <li><a class="dropdown-item" href="/logout/">Logout</a></li>
+                    {% if user.is_admin %}
+                    <li><a class="dropdown-item" href="#">Admin</a></li>
+                    {% else %}
+                    <li><a class="dropdown-item" href="#">Student</a></li>
+                    {% endif %}
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+
+    <div class="d-flex justify-content-center" style="padding-top:20px">
+        <h1>Welcome to the UVA Arts and Sciences Transfer Site</h1>
     </div>
+
+    <div class="d-flex" style="padding-top:20px;padding-left:10px">
+        <h2>Transfer Guidelines</h2>
+    </div>
+
+    <div class="d-flex justify-content-center" style="padding-top:20px">
+        <ol>
+            <li>
+                Permission to transfer credit is not granted to students whose grade point average is less than 2.0,
+                who withdrew from the College within the last ten days of the prior semester,
+                who are currently under suspension, or who are on an Honor Leave of Absence.
+                A 2.5 cumulative GPA is required for study abroad.
+            </li>
+            <li>
+                Credit is allowed only for those courses in which a grade of C or better has been earned.
+                Some programs may require a grade of B or better.
+                Approval to take courses on a pass/fail basis must also be obtained prior to taking the courses.
+                Courses in which "pass" or "credit" (CR) grades are received must be certified as equivalent to a
+                grade of C or higher to be accepted.
+            </li>
+            <li>
+                Only 60 credits of transfer from other universities, foreign study, advanced placement,
+                or dual enrollment may count toward the 120 credits needed for the B.A. or B.S. degree in the College.
+                Subject to these restrictions, the credits completed elsewhere with a grade of C or better
+                and approved as described above will be transferred toward the degree. In the College,
+                the amount of transfer credit awarded and the number of full-time semesters previously
+                completed determines academic level.
+            </li>
+        </ol>
+    </div>
+
+    <div class="d-flex flex-column" style="padding-top:20px;padding-left:10px">
+        {% if object_list %}
+        <div class="d-flex" style="padding-top:20px">
+            <h2>Approve or Deny Requests</h2>
+        </div>
+        {% else %}
+        <div class="d-flex" style="padding-top:20px">
+            <h2>There Are No Pending Requests</h2>
+        </div>
+        {% endif %}
+
+        {% for message_AS in object_list %}
+        <div class="d-flex" style="padding-top:20px">
+            <p style="padding-right:15px">{{ message_AS }}</p>
+            <form action="approveTransfer_AS?id={{message_AS.id}}" method="post">
+                {% csrf_token %}
+                <button class="btn btn-ora">Approve request</button>
+            </form>
+            <form action="denyTransfer_AS?id={{message_AS.id}}" method="post" style="padding-left:10px">
+                {% csrf_token %}
+                <button class="btn btn-ora">Deny request</button>
+            </form>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="d-flex" style="padding-top:40px;padding-left:10px">
+        <h2>Submit a Request to Transfer Credit</h2>
+    </div>
+
+    <div class="d-flex" style="padding-top:20px;padding-left:10px">
+        <form action="post_AS" method="post">
+            {% csrf_token %}
+            <fieldset>
+                {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+                <label for="commentsInput">Please Indicate Your Transfer Request Here</label>
+                <input type="text" name = "message4"  id="classNum" placeholder="Enter Class Number">
+                <input type="text" name = "message" id="commentsInput" placeholder="Enter Class Name">
+                <input type="text" name = "message7" id="siteURL" placeholder="Enter Class Site">
+                <input type="text" name = "message5"  id="classCredits" placeholder="Enter Class Credits">
+                <input type="text" name = "message3" id="equal" placeholder="Enter Uva Equivalency">
+                <input type="text" name = "message6"  id="UVACredits" placeholder="Enter UVA Credits">
+                <input type="text" name = "message2" id="other" placeholder="Enter School">
+                <button type="submit" class="btn btn-ora">
+                    Submit
+                </button>
+            </fieldset>
+        </form>
+    </div>
+
+    <div class="d-flex" style="padding-left:10px;padding-bottom:30px">
+        <small id="commentsHelp">Notice: Decisions will be processed in no more than 24 business hours</small>
+    </div>
+
+
+    <div class="d-xxl-flex">
+        <nav class="navbar" style="background-color: #232D4B">
+          <span class="navbar-text" style="padding-left:5px">UVA CS 3240</span>
+          <span class="navbar-text ml-auto" style="padding-right:5px">Created by Anas Tariq, James O'Connell, Spencer Jackson, Alexander Davis, Zachary Mills </span>
+        </nav>
+    </div>
+
     {% else %}
-    <div class="d-flex" style="padding-top:20px;padding-left:10px">
-        <h2>There Are No Pending Requests</h2>
-    </div>
+    <a href="{% provider_login_url 'google' %}">Login With Google</a>
+
     {% endif %}
 
-    {% for message_AS in object_list %}
-    <div class="d-flex" style="padding-top:20px;padding-left:10px">
-        <p style="padding-right:15px">{{ message_AS }}</p>
-        <form action="approveTransfer_AS?id={{message_AS.id}}" method="post">
-            {% csrf_token %}
-            <button class="btn btn-ora">Approve request</button>
-        </form>
-        <form action="denyTransfer_AS?id={{message_AS.id}}" method="post" style="padding-left:10px">
-            {% csrf_token %}
-            <button class="btn btn-ora">Deny request</button>
-        </form>
-    </div>
-    {% endfor %}
+</div>
 </body>
 </html>
+

@@ -1,3 +1,102 @@
+{% load socialaccount %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+<style>
+.btn-ora {
+  background-color: #F84C1E;
+  border-color: #F84C1E;
+  color: white;
+}
+
+h1 {
+  color: #232D4B;
+}
+
+.navbar-text {
+  color: white;
+}
+</style>
+
+<html>
+<body>
+
+<div class="d-flex flex-column mx-auto">
+
+    <div class="d-flex flex-column mx-auto" style="width:100%">
+        {% if user.is_authenticated %}
+        <div class="d-xxl-flex">
+            <nav class="navbar navbar-expand navbar-dark" style="background-color: #232D4B">
+                <a class="navbar-brand" href="/home/">
+                    <img src="https://dynaimage.cdn.cnn.com/cnn/c_fill,g_auto,w_1200,h_675,ar_16:9/https%3A%2F%2Fcdn.cnn.com%2Fcnnnext%2Fdam%2Fassets%2F200617130257-01-uva-reworked-logo-0616.jpg" width="50" height="30" class="d-inline-block align-top" alt="">
+                    Transfer Tracker
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                {{ user.username }}
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item" href="/logout/">Logout</a></li>
+                                {% if user.is_admin %}
+                                <li><a class="dropdown-item" href="#">Admin</a></li>
+                                {% else %}
+                                <li><a class="dropdown-item" href="#">Student</a></li>
+                                {% endif %}
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <div class="d-flex justify-content-center" style="padding-top:25px;padding-bottom:25px">
+            <h1>Search Results</h1>
+        </div>
+
+        <div class="d-flex" style="padding-bottom:20px;padding-left:25px;padding-right:25px">
+            <table class="table table-hover">
+                <tr>
+                    <th>Section</th>
+                    <th>Course Name</th>
+                    <th>Course Meetings</th>
+                    <th>Free Seats</th>
+                </tr>
+                {% for offering in object_list %}
+                <tr>
+                    <th>{{ offering.section }}</th>
+                    <th>{{ offering.name }}</th>
+                    <th>{{ offering.day }}</th>
+                    <th>{{ offering.enrollment }}</th>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+        {% else %}
+
+        <a href="{% provider_login_url 'google' %}">Login With Google</a>
+
+        {% endif %}
+
+    </div>
+
+    <div class="d-xxl-flex">
+        <nav class="navbar" style="background-color: #232D4B">
+            <span class="navbar-text" style="padding-left:10px">UVA CS 3240</span>
+            <span class="navbar-text ml-auto" style="padding-right:10px">Created by Anas Tariq, James O'Connell, Spencer Jackson, Alexander Davis, Zachary Mills </span>
+        </nav>
+    </div>
+
+</div>
+
+
+<!--
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +120,7 @@
     </tr>
 {% endfor %}
 </table>
-
 <a href="/home/seas">Go back to search</a>
 </body>
 </html>
+-->
