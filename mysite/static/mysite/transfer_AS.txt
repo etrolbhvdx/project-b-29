@@ -1,4 +1,8 @@
 $University of Test A
 A	A	A	A	A
+A	A	A	A	A
+A	A	A	A	A
 ESC 1000	Intro to Environmental Science	3	EVSC 1110	3
+$B
+B	B	B	B	B
 $End
