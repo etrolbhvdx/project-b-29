@@ -29,9 +29,10 @@ class Message_AS(models.Model):
     school_name = models.CharField(max_length=200, default="uva")
     equivalency_name = models.CharField(max_length=200, default="None")
     UVA_credits = models.CharField(max_length=200, default=0)
+    site_url = models.CharField(max_length=200, default=0)
 
     def __str__(self):
-        return "Class="+self.message_text+", School="+self.school_name+", Equivalency="+self.equivalency_name
+        return "Class=" + self.message_text + ", School=" + self.school_name + ", Site=" + self.site_url + ", Equivalency=" + self.equivalency_name
 
 
 class Offering(models.Model):
