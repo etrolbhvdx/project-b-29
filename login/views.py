@@ -281,7 +281,7 @@ def freeSearch(request):
             n += 1
             internalCount = 0
         else:
-            if keyword in line_data[n]:
+            if keyword.lower() in line_data[n].lower():
                 newCount += 1
                 new_data = line_data[n].strip('\n').split('\t')
                 s = Transfer(transferClass=new_data[0], title=new_data[1], transferCredits=new_data[2], UVAClass=new_data[3],
