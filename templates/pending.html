@@ -82,4 +82,18 @@ h1, h2 {
         <h2>You have No Approved Requests</h2>
     </div>
     {% endif %}
+    {% if deny %}
+    <div class="d-flex" style="padding-top:20px;padding-left:10px">
+        {% for message in deny %}
+            <div class="d-flex" style="padding-top:20px;padding-left:10px">
+            <p style="padding-right:15px">{{ message }}, Status=Denied</p>
+
+    </div>
+    {% endfor %}
+    </div>
+    {% else %}
+    <div class="d-flex" style="padding-top:20px;padding-left:10px">
+        <h2>You have No Denied Requests</h2>
+    </div>
+    {% endif %}
 </div>

@@ -8,7 +8,7 @@ import requests
 from django.templatetags.static import static
 import json
 
-from .models import Message, Message_AS, Offering, Transfer, Transfer_AS, ApprovedTransfer, ApprovedTransfer_AS, NewApprovedSchool, NewApprovedSchool_AS
+from .models import Message, Message_AS, Offering, Transfer, Transfer_AS, ApprovedTransfer, DeniedTransfer, ApprovedTransfer_AS, NewApprovedSchool, NewApprovedSchool_AS
 from django.urls import reverse
 
 
@@ -193,7 +193,10 @@ def approveTransfer_AS(request):
 
 def denyTransfer(request):
     me = Message.objects.get(id=request.GET.get('id'))
+    req = DeniedTransfer(class_name=me.message_text, school_name=me.school_name, equivalency_name=me.equivalency_name,
+                           user=request.user)
     me.delete()
+    req.save()
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 def denyTransfer_AS(request):
@@ -275,7 +278,8 @@ class PendingView(generic.ListView):
 def pend(request):
     pendlist=Message.objects.all().filter(user=request.user)
     apprlist=ApprovedTransfer.objects.all().filter(user=request.user)
-    return render(request,'pending.html',{'list':pendlist,'appr':apprlist})
+    denylist=DeniedTransfer.objects.all().filter(user=request.user)
+    return render(request,'pending.html',{'list':pendlist,'appr':apprlist,'deny':denylist})
 
 def freeSearch(request):
     Transfer.objects.all().delete()
