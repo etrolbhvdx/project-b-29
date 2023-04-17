@@ -8,7 +8,7 @@ import requests
 from django.templatetags.static import static
 import json
 
-from .models import Message, Offering, Transfer, ApprovedTransfer, NewApprovedSchool
+from .models import Message, Message_AS, Offering, Transfer, Transfer_AS, ApprovedTransfer, ApprovedTransfer_AS, NewApprovedSchool, NewApprovedSchool_AS
 from django.urls import reverse
 
 
@@ -41,6 +41,16 @@ class SeasReqView(generic.ListView):
     def __str__(self):
         return self.email
 
+class ASReqView(generic.ListView):
+    model = Message_AS
+    template_name = 'clasadmin.html'
+    fields = ['message_text']
+#what does get_attr do
+    def get_queryset(self):
+        return Message_AS.objects.all()
+    def __str__(self):
+        return self.email
+
 
 class SeasSearchView(generic.ListView):
     model = Offering
@@ -60,6 +70,15 @@ class SeasTransferView(generic.ListView):
         return Transfer.objects.all()
 
 
+class ClasTransferView(generic.ListView):
+    model = Transfer_AS
+    template_name = 'ASequivalencies.html'
+    fields = ['transferClass', 'title', 'transferCredits', 'UVAClass', 'UVACredits']
+
+    def get_queryset(self):
+        return Transfer_AS.objects.all()
+
+
 class ApprovedTransferView(generic.ListView):
     model = ApprovedTransfer
     template_name = 'approved.html'
@@ -73,6 +92,12 @@ class SeasView(generic.ListView):
     fields = ['school_name', 'index']
     def get_queryset(self):
         return NewApprovedSchool.objects.all()
+
+
+class ClasView(generic.ListView):
+    template_name = 'clas.html'
+    model = NewApprovedSchool_AS
+    fields = ['school_name', 'index']
 
 
 def approveTransfer(request):
@@ -120,15 +145,61 @@ def approveTransfer(request):
     req.save()
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
+
+def approveTransfer_AS(request):
+    me_AS=Message_AS.objects.get(id=request.GET.get('id'))
+    school = me_AS.school_name
+    i = 0
+    flag= False
+    new = me_AS.class_number + "\t" + me_AS.message_text + "\t" + me_AS.class_credits + "\t" + me_AS.equivalency_name + \
+        "\t" + me_AS.UVA_credits
+    listings = open('mysite/static/mysite/transfer_AS.txt', 'r')
+    lines = listings.readlines()
+    listings.close()
+    with open('mysite/static/mysite/transfer_AS.txt', 'w') as new_listings:
+        for line in lines:
+            if school in line:
+                new_listings.write(line)
+                new_listings.write(new)
+                new_listings.write('\n')
+                flag=True
+            else:
+                new_listings.write(line)
+    new_listings.close()
+
+    if not flag:
+        neq_AS = NewApprovedSchool_AS(school_name=school, index=i+NewApprovedSchool_AS.objects.count())
+        neq_AS.save()
+        listings_2 = open('mysite/static/mysite/transfer_AS.txt', 'r')
+        lines_2 = listings_2.readlines()
+        listings_2.close()
+        new_school = "$"+school
+        with open('mysite/static/mysite/transfer_AS.txt', 'w') as new_listings_2:
+            for item in lines_2:
+                if "End" in item:
+                    new_listings_2.write(new_school)
+                    new_listings_2.write('\n')
+                    new_listings_2.write(new)
+                    new_listings_2.write('\n')
+                    new_listings_2.write(item)
+                else:
+                    new_listings_2.write(item)
+        new_listings_2.close()
+
+    req_AS=ApprovedTransfer_AS(class_name=me_AS.message_text,school_name=me_AS.school_name,equivalency_name=me_AS.equivalency_name)
+    me_AS.delete()
+    req_AS.save()
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
 def denyTransfer(request):
     me = Message.objects.get(id=request.GET.get('id'))
     me.delete()
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
-class ClasView(CreateView):
-    template_name = 'clas.html'
-    model = User
-    fields = ['email']
+def denyTransfer_AS(request):
+    me_AS = Message_AS.objects.get(id=request.GET.get('id'))
+    me_AS.delete()
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 
 def post(request):
@@ -138,6 +209,14 @@ def post(request):
     m.save()
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
+
+def post_AS(request):
+    m_as = Message_AS(class_number=request.POST.get("message4", ""), message_text=request.POST.get("message", ""),
+                class_credits=request.POST.get("message5", ""), UVA_credits=request.POST.get("message6", ""),
+                school_name=request.POST.get("message2", ""), equivalency_name=request.POST.get("message3", ""))
+
+    m_as.save()
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 def search(request):
     subj = request.POST.get("search", "")
@@ -173,13 +252,39 @@ def transfer(request):
                 countIter+=1
                 while lines[countIter][0] != "$":
                     data = lines[countIter].strip('\n').split('\t')
-                    print(data)
                     t = Transfer(transferClass=data[0], title=data[1], transferCredits=data[2], UVAClass=data[3], UVACredits=data[4])
                     t.save()
                     countIter+=1
             countIter+=1
         else:
             countIter+=1
+        listings.close()
 
     return HttpResponseRedirect('equivalencies')
+
+
+def transfer_AS(request):
+    Transfer_AS.objects.all().delete()
+    index_AS = request.POST.get("transfer_AS", "")
+    listings_AS = open('mysite/static/mysite/transfer_AS.txt', 'r')
+    lines_AS = listings_AS.readlines()
+    max_AS = len(lines_AS)
+    count_AS = 0
+    countIter_AS = 0
+    while countIter_AS < max_AS:
+        if lines_AS[countIter_AS][0] == "$":
+            count_AS+=1
+            if count_AS == int(index_AS)+1:
+                countIter_AS+=1
+                while lines_AS[countIter_AS][0] != "$":
+                    data_AS = lines_AS[countIter_AS].strip('\n').split('\t')
+                    t_AS = Transfer_AS(transferClass=data_AS[0], title=data_AS[1], transferCredits=data_AS[2], UVAClass=data_AS[3], UVACredits=data_AS[4])
+                    t_AS.save()
+                    countIter_AS+=1
+            countIter_AS+=1
+        else:
+            countIter_AS+=1
+        listings_AS.close()
+
+    return HttpResponseRedirect('ASequivalencies')
 
