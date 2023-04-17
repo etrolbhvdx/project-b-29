@@ -68,6 +68,7 @@ class ApprovedTransfer(models.Model):
     class_name = models.CharField(max_length=200)
     school_name = models.CharField(max_length=200, default="uva")
     equivalency_name = models.CharField(max_length=200, default="None")
+    user=models.CharField(max_length=200,default="None")
 
     def __str__(self):
         return "Class="+self.class_name+", School="+self.school_name+", Equivalency="+self.equivalency_name

@@ -65,7 +65,21 @@ h1, h2 {
     </div>
     {% else %}
     <div class="d-flex" style="padding-top:20px;padding-left:10px">
-        <h2>There Are No Pending Requests</h2>
+        <h2>You Have No Pending Requests</h2>
+    </div>
+    {% endif %}
+    {% if appr %}
+    <div class="d-flex" style="padding-top:20px;padding-left:10px">
+        {% for message in appr %}
+            <div class="d-flex" style="padding-top:20px;padding-left:10px">
+            <p style="padding-right:15px">{{ message }}, Status=Approved</p>
+
+    </div>
+    {% endfor %}
+    </div>
+    {% else %}
+    <div class="d-flex" style="padding-top:20px;padding-left:10px">
+        <h2>You have No Approved Requests</h2>
     </div>
     {% endif %}
 </div>

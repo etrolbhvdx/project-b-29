@@ -140,7 +140,7 @@ def approveTransfer(request):
                     new_listings_2.write(item)
         new_listings_2.close()
 
-    req=ApprovedTransfer(class_name=me.message_text,school_name=me.school_name,equivalency_name=me.equivalency_name)
+    req=ApprovedTransfer(class_name=me.message_text,school_name=me.school_name,equivalency_name=me.equivalency_name,user=request.user)
     me.delete()
     req.save()
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
@@ -274,7 +274,8 @@ class PendingView(generic.ListView):
 
 def pend(request):
     pendlist=Message.objects.all().filter(user=request.user)
-    return render(request,'pending.html',{'list':pendlist})
+    apprlist=ApprovedTransfer.objects.all().filter(user=request.user)
+    return render(request,'pending.html',{'list':pendlist,'appr':apprlist})
 
 def freeSearch(request):
     Transfer.objects.all().delete()
