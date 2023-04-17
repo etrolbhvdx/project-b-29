@@ -134,7 +134,8 @@ class ClasView(CreateView):
 def post(request):
     m = Message(class_number=request.POST.get("message4", ""), message_text=request.POST.get("message", ""),
                 class_credits=request.POST.get("message5", ""), UVA_credits=request.POST.get("message6", ""),
-                school_name=request.POST.get("message2", ""), equivalency_name=request.POST.get("message3", ""))
+                school_name=request.POST.get("message2", ""), equivalency_name=request.POST.get("message3", ""),
+                user=request.user)
     m.save()
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
