@@ -50,4 +50,5 @@ urlpatterns = [
     path('home/clas/transfer_AS', views.transfer_AS),
     path('home/clas/ASequivalencies', views.ClasTransferView.as_view()),
     path('home/seas/admin/denyTransfer',views.denyTransfer),
+    path('home/seas/freeSearch', views.freeSearch)
 ]

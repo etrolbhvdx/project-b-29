@@ -295,6 +295,20 @@ h1, h2 {
         </form>
     </div>
 
+    <div class="d-flex" style="padding-top:20px;padding-left:10px">
+        <form action="freeSearch" method="post">
+            {% csrf_token %}
+            <fieldset>
+                {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+                <label for="searchNum">Search for any class number or name</label>
+                <input type="text" name = "searchNum"  id="searchNum" placeholder="Enter Keyword">
+                <button type="submit" class="btn btn-ora">
+                    Submit
+                </button>
+            </fieldset>
+        </form>
+    </div>
+
     <div class="d-xxl-flex">
         <nav class="navbar" style="background-color: #232D4B">
           <span class="navbar-text" style="padding-left:5px">UVA CS 3240</span>
