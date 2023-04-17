@@ -145,6 +145,19 @@ h1, h2 {
         <small id="commentsHelp">Notice: Decisions will be processed in no more than 24 business hours</small>
     </div>
 
+    <div class="d-flex" style="padding-top:20px;padding-left:10px">
+        <form action="freeSearchAS" method="post">
+            {% csrf_token %}
+            <fieldset>
+                {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+                <label for="searchNumAS">Search for any class number or name</label>
+                <input type="text" name = "searchNumAS"  id="searchNumAS" placeholder="Enter Keyword">
+                <button type="submit" class="btn btn-ora">
+                    Submit
+                </button>
+            </fieldset>
+        </form>
+    </div>
 
     <div class="d-xxl-flex">
         <nav class="navbar" style="background-color: #232D4B">
