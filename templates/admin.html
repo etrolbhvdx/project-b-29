@@ -4,19 +4,89 @@
 {% bootstrap_javascript %}
 
 <style>
-.btn-ora {
-  background-color: #F84C1E;
-  border-color: #F84C1E;
-  color: white;
-}
+    body {
+        background-color: #F8F9FA;
+        font-family: 'Montserrat', sans-serif;
+    }
 
-h4 {
-  color: #232D4B;
-}
+    .navbar {
+        background-color: #232D4B;
+        border-radius: 0px;
+        width:100%;
+    }
 
-.navbar-text {
-  color: white;
-}
+    .navbar-brand {
+        color: white;
+        font-weight: bold;
+    }
+
+    .navbar-text {
+        color: white;
+        font-size: 14px;
+    }
+
+    .dropdown-menu {
+        border-radius: 0px;
+    }
+
+    .dropdown-item {
+        font-size: 14px;
+    }
+
+    .btn-ora {
+        background-color: #F84C1E;
+        border-color: #F84C1E;
+        color: white;
+        font-weight: bold;
+        border-radius: 10px;
+    }
+
+    .card-button {
+        background-color: #F84C1E;
+        border-color: #F84C1E;
+        color: white;
+        font-weight: bold;
+        border-radius: 10px;
+        width: 100%;
+    }
+
+    h4 {
+        color: #232D4B;
+        font-weight: bold;
+        font-size: 30px;
+        margin-bottom: 30px;
+    }
+
+    h5 {
+        color: #fff;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    p {
+        color: #fff;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .card {
+      position: relative;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0,0,0,0.3);
+      z-index: 1;
+    }
+
+    .card-body {
+      position: relative;
+      z-index: 2;
+    }
+
 
 </style>
 
@@ -44,7 +114,11 @@ h4 {
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
                     <li><a class="dropdown-item" href="/logout/">Logout</a></li>
+                    {% if user.is_admin %}
                     <li><a class="dropdown-item" href="#">Admin</a></li>
+                    {% else %}
+                    <li><a class="dropdown-item" href="#">Student</a></li>
+                    {% endif %}
                 </ul>
               </li>
             </ul>
@@ -56,34 +130,37 @@ h4 {
         <h4>Select a School to View More Information</h4>
       </div>
 
-      <div class="d-flex justify-content-center" style="padding-top:25px">
-        <ul>
-          <p><a class="btn btn-ora" href="/home/clas/admin" role="button" style="width:100%">
-            College of Arts and Sciences
-          </a></p>
-{#          <p><a class="btn btn-ora" href="#" role="button" style="width:100%">#}
-{#            School of Architecture#}
-{#          </a></p>#}
-{#          <p><a class="btn btn-ora" href="#" role="button" style="width:100%">#}
-{#            McIntire School of Commerce#}
-{#          </a></p>#}
-{#          <p><a class="btn btn-ora" href="#" role="button" style="width:100%">#}
-{#            School of Education and Human Development#}
-{#          </a></p>#}
-          <p><a class="btn btn-ora" href="/home/seas/admin" role="button" style="width:100%">
-            School of Engineering and Applied Sciences
-          </a></p>
-{#          <p><a class="btn btn-ora" href="#" role="button" style="width:100%">#}
-{#            School of Nursing#}
-{#          </a></p>#}
-{#          <p><a class="btn btn-ora" href="#" role="button" style="width:100%">#}
-{#            Batten School of Leadership and Public Policy#}
-{#          </a></p>#}
-            <p><a class="btn btn-ora" href="/home/pending" role="button" style="width:100%">
-            View your pending requests
-          </a></p>
-        </ul>
-      </div>
+      <div class="d-flex justify-content-center" style="padding-top:25px;margin-bottom:60px;padding-left:20px;padding-right:20px">
+          <div class="row">
+            <div class="col-md-6 col-lg-4 mb-4">
+              <div class="card" style="background-image:url('https://www.moorerubleyudell.com/sites/default/files/styles/mry-project-image-main/public/342-Main1.jpg?itok=vv2z8oKf');background-size:cover;background-position:center;">
+                <div class="card-body">
+                  <h5 class="card-title">College of Arts and Sciences</h5>
+                  <p class="card-text">View more information about the College of Arts and Sciences.</p>
+                  <a href="/home/clas/admin" class="btn card-button stretched-link">View</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-4">
+              <div class="card" style="background-image:url('https://news.virginia.edu/sites/default/files/article_image/thornton_hall_engineering_ss_header_3-2_1.jpg');background-size:cover;background-position:center;">
+                <div class="card-body">
+                  <h5 class="card-title">School of Engineering and Applied Sciences</h5>
+                  <p class="card-text">View more information about the School of Engineering and Applied Sciences.</p>
+                  <a href="/home/seas/admin" class="btn card-button stretched-link">View</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-4">
+              <div class="card" style="background-image:url('https://news.virginia.edu/sites/default/files/article_image/institutional_announcement_ss_header.jpg');background-size:cover;background-position:center;">
+                <div class="card-body">
+                  <h5 class="card-title">View your pending requests</h5>
+                  <p class="card-text">View your pending transfer requests.</p>
+                  <a href="/home/pending" class="btn card-button stretched-link">View</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
     {% else %}
       <a href="{% provider_login_url 'google' %}">Login With Google</a>
@@ -94,40 +171,11 @@ h4 {
 
   <div class="d-xxl-flex">
     <nav class="navbar fixed-bottom" style="background-color: #232D4B">
-      <span class="navbar-text" style="padding-left:5px">UVA CS 3240</span>
-      <span class="navbar-text ml-auto" style="padding-right:5px">Created by Anas Tariq, James O'Connell, Spencer Jackson, Alexander Davis, Zachary Mills </span>
+      <span class="navbar-text" style="padding-left:10px">UVA CS 3240</span>
+      <span class="navbar-text ml-auto" style="padding-right:10px">Created by Anas Tariq, James O'Connell, Spencer Jackson, Alexander Davis, Zachary Mills </span>
     </nav>
   </div>
 </div>
 
 </body>
 </html>
-
-
-
-<!--
-{% load socialaccount %}
-<html>
-<body>
-<h1> Login Screen </h1>
-{% if user.is_authenticated %}
-  <p>Welcome, You are logged in as {{ user.username }}</p>
-    <footer>You are an admin</footer>
-    <h2>Transfer Credit</h2>
-  <p>To find out more information about transferring credits to UVA, please choose a school below</p>
-  <ul>
-    <li><a href ="/home/clas/">College of Arts and Sciences</a></li>
-    <li>School of Architecture</li>
-    <li>McIntire School of Commerce</li>
-    <li>School of Education and Human Development</li>
-    <li><a href ="/home/seas/admin/">School of Engineering and Applied Sciences</a></li>
-    <li>School of Nursing</li>
-    <li>Batten School of Leadership and Public Policy</li>
-  </ul>
-    <a href="/logout/">Logout</a>
-{% else %}
-  <a href="{% provider_login_url 'google' %}">Login With Google</a>
-{% endif %}
-</body>
-</html>
--->
