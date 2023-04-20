@@ -72,7 +72,6 @@ h1, h2 {
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
                     <li><a class="dropdown-item" href="/logout/">Logout</a></li>
-                    <li><a class="dropdown-item" href="#">Admin</a></li>
                 </ul>
               </li>
             </ul>
@@ -119,6 +118,7 @@ h1, h2 {
             <p style="padding-right:15px">{{ message }}, Status=Denied</p>
 
     </div>
+
     {% endfor %}
     </div>
     {% else %}
@@ -126,4 +126,12 @@ h1, h2 {
         <h2>You have No Denied Requests</h2>
     </div>
     {% endif %}
+</div>
+
+<div class="d-xxl-flex">
+    <nav class="navbar fixed-bottom" style="background-color: #232D4B">
+      <span class="navbar-text" style="padding-left:10px">UVA CS 3240</span>
+      <span class="navbar-text ml-auto" style="padding-right:10px">Created by Anas Tariq, James O'Connell, Spencer Jackson, Alexander Davis, Zachary Mills </span>
+    </nav>
+  </div>
 </div>
