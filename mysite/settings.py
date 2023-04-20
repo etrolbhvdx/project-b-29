@@ -160,3 +160,6 @@ SITE_ID = 3
 
 LOGIN_REDIRECT_URL = '/home'
 LOGOUT_REDIRECT_URL = '/'
+
+#setup https redirecting
+SECURE_SSL_REDIRECT = 'true'
