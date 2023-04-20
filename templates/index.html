@@ -38,11 +38,11 @@ body {
   </div>
 
   {% if user.is_authenticated %}
-    <div class="d-flex justify-content-center" style="padding-top:15px">
+    <div class="d-flex justify-content-center" style="padding-top:15px;margin-bottom:200px">
      <a href="/home/" class="btn btn-ora w-100">Get Started!</a>
     </div>
   {% else %}
-    <div class="d-flex justify-content-center" style="padding-top:15px">
+    <div class="d-flex justify-content-center" style="padding-top:15px;margin-bottom:200px">
       <a href="{% provider_login_url 'google' %}" class="btn btn-ora w-100">Get Started!</a>
     </div>
   {% endif %}
@@ -55,19 +55,3 @@ body {
   </div>
 
 </div>
-
-<!--
-{% load socialaccount %}
-</div>
-<html>
-<body>
-<h1> Login Screen </h1>
-{% if user.is_authenticated %}
-  <p>Welcome, You are logged in as {{ user.username }}</p>
-  <a href="/logout/">Logout</a>
-{% else %}
-  <a href="{% provider_login_url 'google' %}">Login With Google</a>
-{% endif %}
-</body>
-</html>
--->
