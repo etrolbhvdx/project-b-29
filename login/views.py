@@ -3,6 +3,8 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import Group, User
 from django.views import generic
+from django.contrib.auth.decorators import user_passes_test
+from django.utils.decorators import method_decorator
 import os, fileinput
 import requests
 from django.templatetags.static import static
@@ -31,6 +33,7 @@ def viewSeas(request):
         return render(request,'seas.html')
 
 
+@method_decorator(user_passes_test(lambda u: u.groups.filter(name='Admin').exists()), name='dispatch')
 class SeasReqView(generic.ListView):
     model = Message
     template_name = 'seasadmin.html'
