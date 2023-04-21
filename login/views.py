@@ -44,13 +44,17 @@ class SeasReqView(generic.ListView):
     def __str__(self):
         return self.email
 
+
+@method_decorator(user_passes_test(lambda u: u.groups.filter(name='Admin').exists()), name='dispatch')
 class ASReqView(generic.ListView):
     model = Message_AS
     template_name = 'clasadmin.html'
     fields = ['message_text']
 #what does get_attr do
+
     def get_queryset(self):
         return Message_AS.objects.all()
+
     def __str__(self):
         return self.email
 
@@ -89,14 +93,17 @@ class ApprovedTransferView(generic.ListView):
         return ApprovedTransfer.objects.all()
 
 
+@method_decorator(user_passes_test(lambda u: u.groups.filter(name='Student').exists()), name='dispatch')
 class SeasView(generic.ListView):
     model = NewApprovedSchool
     template_name = 'seas.html'
     fields = ['school_name', 'index']
+
     def get_queryset(self):
         return NewApprovedSchool.objects.all()
 
 
+@method_decorator(user_passes_test(lambda u: u.groups.filter(name='Student').exists()), name='dispatch')
 class ClasView(generic.ListView):
     template_name = 'clas.html'
     model = NewApprovedSchool_AS
