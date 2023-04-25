@@ -47,6 +47,11 @@ h1, h2 {
 .navbar-text {
   color: white;
 }
+
+input[type="text"] {
+    width: 100%;
+}
+
 </style>
 
 <html lang="en">
@@ -149,22 +154,38 @@ h1, h2 {
         <h2>Submit a Request to Transfer Credit</h2>
     </div>
 
-    <div class="d-flex" style="padding-top:20px;padding-left:10px">
-        <form action="post" method="post">
+    <div class="d-flex" style="padding-top:20px;padding-left:10px;width:100%">
+        <form action="post" method="post" style="width:60%">
             {% csrf_token %}
             <fieldset>
                 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
                 <label for="commentsInput">Please Indicate Your Transfer Request Here</label>
-                <input type="text" name = "message4"  id="classNum" placeholder="Enter Class Number">
-                <input type="text" name = "message" id="commentsInput" placeholder="Enter Class Name">
-                <input type="text" name = "message7" id="siteUrl" placeholder="Enter Class Site">
-                <input type="text" name = "message5"  id="classCredits" placeholder="Enter Class Credits">
-                <input type="text" name = "message3" id="equal" placeholder="Enter Uva Equivalency">
-                <input type="text" name = "message6"  id="UVACredits" placeholder="Enter UVA Credits">
-                <input type="text" name = "message2" id="other" placeholder="Enter School">
-                <button type="submit" class="btn btn-ora">
-                    Submit
-                </button>
+                <div class="form-group" style="padding-top:15px">
+                    <input type="text" name = "message4"  id="classNum" placeholder="Enter Class Number">
+                </div>
+                <div class="form-group" style="padding-top:15px">
+                    <input type="text" name = "message" id="commentsInput" placeholder="Enter Class Name">
+                </div>
+                <div class="form-group" style="padding-top:15px">
+                    <input type="text" name = "message7" id="siteUrl" placeholder="Enter Class Site">
+                </div>
+                <div class="form-group" style="padding-top:15px">
+                    <input type="text" name = "message5"  id="classCredits" placeholder="Enter Class Credits">
+                </div>
+                <div class="form-group" style="padding-top:15px">
+                    <input type="text" name = "message3" id="equal" placeholder="Enter Uva Equivalency">
+                </div>
+                <div class="form-group" style="padding-top:15px">
+                    <input type="text" name = "message6"  id="UVACredits" placeholder="Enter UVA Credits">
+                </div>
+                <div class="form-group" style="padding-top:15px">
+                    <input type="text" name = "message2" id="other" placeholder="Enter School">
+                </div>
+                <div class="form-group"style="padding-top:15px;padding-left:10px;padding-right:10px">
+                    <button type="submit" class="btn btn-ora" style="width:100%">
+                        Submit
+                    </button>
+                </div>
             </fieldset>
         </form>
     </div>
@@ -173,7 +194,7 @@ h1, h2 {
         <small id="commentsHelp">Notice: Decisions will be processed in no more than 24 business hours</small>
     </div>
 
-    <div class="d-flex" style="padding-left:10px;padding-top:10px">
+    <div class="d-flex" style="padding-left:10px;padding-top:30px">
     <p><a class="btn btn-ora" href="/home/pending" role="button" style="width:100%">
         View your pending requests
     </a></p>
@@ -350,12 +371,12 @@ h1, h2 {
     </div>
 
     <div class="d-flex" style="padding-top:20px;padding-left:10px">
-        <form action="freeSearch" method="post">
+        <form action="freeSearch" method="post" style="width:100%">
             {% csrf_token %}
             <fieldset>
                 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
                 <label for="searchNum">Search for any class number or name</label>
-                <input type="text" name = "searchNum"  id="searchNum" placeholder="Enter Keyword">
+                <input type="text" name = "searchNum"  id="searchNum" placeholder="Enter Keyword" style="width:40%">
                 <button type="submit" class="btn btn-ora">
                     Submit
                 </button>
