@@ -8,7 +8,7 @@ import requests
 from django.templatetags.static import static
 import json
 
-from .models import Message, Message_AS, Offering, Transfer, Transfer_AS, ApprovedTransfer, DeniedTransfer, ApprovedTransfer_AS, NewApprovedSchool, NewApprovedSchool_AS
+from .models import Message, Message_AS, Offering, Transfer, Transfer_AS, ApprovedTransfer, DeniedTransfer, ApprovedTransfer_AS, DeniedTransfer_AS, NewApprovedSchool, NewApprovedSchool_AS
 from django.urls import reverse
 
 
@@ -86,6 +86,13 @@ class ApprovedTransferView(generic.ListView):
         return ApprovedTransfer.objects.all()
 
 
+class ApprovedTransferView_AS(generic.ListView):
+    model = ApprovedTransfer_AS
+    template_name = 'approved_AS.html'
+    def get_queryset(self):
+        return ApprovedTransfer_AS.objects.all()
+
+
 class SeasView(generic.ListView):
     model = NewApprovedSchool
     template_name = 'seas.html'
@@ -98,6 +105,8 @@ class ClasView(generic.ListView):
     template_name = 'clas.html'
     model = NewApprovedSchool_AS
     fields = ['school_name', 'index']
+    def get_queryset(self):
+        return NewApprovedSchool_AS.objects.all()
 
 
 def approveTransfer(request):
@@ -149,7 +158,7 @@ def approveTransfer(request):
 def approveTransfer_AS(request):
     me_AS=Message_AS.objects.get(id=request.GET.get('id'))
     school = me_AS.school_name
-    i = 0
+    i = 4
     flag= False
     new = me_AS.class_number + "\t" + me_AS.message_text + "\t" + me_AS.class_credits + "\t" + me_AS.equivalency_name + \
         "\t" + me_AS.UVA_credits
@@ -186,7 +195,7 @@ def approveTransfer_AS(request):
                     new_listings_2.write(item)
         new_listings_2.close()
 
-    req_AS=ApprovedTransfer_AS(class_name=me_AS.message_text,school_name=me_AS.school_name,equivalency_name=me_AS.equivalency_name)
+    req_AS=ApprovedTransfer_AS(class_name=me_AS.message_text,school_name=me_AS.school_name,equivalency_name=me_AS.equivalency_name,user=request.user)
     me_AS.delete()
     req_AS.save()
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
@@ -199,9 +208,13 @@ def denyTransfer(request):
     req.save()
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
+
 def denyTransfer_AS(request):
     me_AS = Message_AS.objects.get(id=request.GET.get('id'))
+    req = DeniedTransfer_AS(class_name=me.message_text, school_name=me.school_name, equivalency_name=me.equivalency_name,
+                           user=request.user)
     me_AS.delete()
+    req.save()
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 
@@ -217,7 +230,7 @@ def post(request):
 def post_AS(request):
     m_as = Message_AS(class_number=request.POST.get("message4", ""), message_text=request.POST.get("message", ""),
                 class_credits=request.POST.get("message5", ""), UVA_credits=request.POST.get("message6", ""),
-                school_name=request.POST.get("message2", ""), equivalency_name=request.POST.get("message3", ""),
+                school_name=request.POST.get("message2", ""), equivalency_name=request.POST.get("message3", ""),user=request.user,
                 site_url=request.POST.get("message7", ""))
 
     m_as.save()
@@ -267,6 +280,7 @@ def transfer(request):
 
     return HttpResponseRedirect('equivalencies')
 
+
 class PendingView(generic.ListView):
     model = Message
     template_name = 'pending.html'
@@ -275,11 +289,29 @@ class PendingView(generic.ListView):
     def get_queryset(self):
         return Message.objects.all()
 
+
+class PendingView_AS(generic.ListView):
+    model = Message_AS
+    template_name = 'pending_AS.html'
+    fields = ['message_text']
+#what does get_attr do
+    def get_queryset(self):
+        return Message_AS.objects.all()
+
+
 def pend(request):
     pendlist=Message.objects.all().filter(user=request.user)
     apprlist=ApprovedTransfer.objects.all().filter(user=request.user)
     denylist=DeniedTransfer.objects.all().filter(user=request.user)
     return render(request,'pending.html',{'list':pendlist,'appr':apprlist,'deny':denylist})
+
+
+def pend_AS(request):
+    pendlist=Message_AS.objects.all().filter(user=request.user)
+    apprlist=ApprovedTransfer_AS.objects.all().filter(user=request.user)
+    denylist=DeniedTransfer_AS.objects.all().filter(user=request.user)
+    return render(request,'pending_AS.html',{'list':pendlist,'appr':apprlist,'deny':denylist})
+
 
 def freeSearch(request):
     Transfer.objects.all().delete()
@@ -366,7 +398,7 @@ def transfer_AS(request):
     while countIter_AS < max_AS:
         if lines_AS[countIter_AS][0] == "$":
             count_AS+=1
-            if count_AS == int(index_AS)+1:
+            if count_AS == int(index_AS):
                 countIter_AS+=1
                 while lines_AS[countIter_AS][0] != "$":
                     data_AS = lines_AS[countIter_AS].strip('\n').split('\t')
