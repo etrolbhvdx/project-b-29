@@ -3,6 +3,8 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import Group, User
 from django.views import generic
+from django.contrib.auth.decorators import user_passes_test
+from django.utils.decorators import method_decorator
 import os, fileinput
 import requests
 from django.templatetags.static import static
@@ -31,6 +33,7 @@ def viewSeas(request):
         return render(request,'seas.html')
 
 
+@method_decorator(user_passes_test(lambda u: u.groups.filter(name='Admin').exists()), name='dispatch')
 class SeasReqView(generic.ListView):
     model = Message
     template_name = 'seasadmin.html'
@@ -41,13 +44,17 @@ class SeasReqView(generic.ListView):
     def __str__(self):
         return self.email
 
+
+@method_decorator(user_passes_test(lambda u: u.groups.filter(name='Admin').exists()), name='dispatch')
 class ASReqView(generic.ListView):
     model = Message_AS
     template_name = 'clasadmin.html'
     fields = ['message_text']
 #what does get_attr do
+
     def get_queryset(self):
         return Message_AS.objects.all()
+
     def __str__(self):
         return self.email
 
@@ -93,14 +100,18 @@ class ApprovedTransferView_AS(generic.ListView):
         return ApprovedTransfer_AS.objects.all()
 
 
+
+@method_decorator(user_passes_test(lambda u: u.groups.filter(name='Student').exists()), name='dispatch')
 class SeasView(generic.ListView):
     model = NewApprovedSchool
     template_name = 'seas.html'
     fields = ['school_name', 'index']
+
     def get_queryset(self):
         return NewApprovedSchool.objects.all()
 
 
+@method_decorator(user_passes_test(lambda u: u.groups.filter(name='Student').exists()), name='dispatch')
 class ClasView(generic.ListView):
     template_name = 'clas.html'
     model = NewApprovedSchool_AS
@@ -211,7 +222,7 @@ def denyTransfer(request):
 
 def denyTransfer_AS(request):
     me_AS = Message_AS.objects.get(id=request.GET.get('id'))
-    req = DeniedTransfer_AS(class_name=me.message_text, school_name=me.school_name, equivalency_name=me.equivalency_name,
+    req = DeniedTransfer_AS(class_name=me_AS.message_text, school_name=me_AS.school_name, equivalency_name=me_AS.equivalency_name,
                            user=request.user)
     me_AS.delete()
     req.save()
