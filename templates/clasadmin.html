@@ -175,6 +175,97 @@ h1, h2 {
         <small id="commentsHelp">Notice: Decisions will be processed in no more than 24 business hours</small>
     </div>
 
+    <div class="d-flex" style="padding-left:10px;padding-top:10px">
+    <p><a class="btn btn-ora" href="/home/pendingAS" role="button" style="width:100%">
+        View your pending requests
+    </a></p>
+    </div>
+
+
+        <div class="d-flex" style="padding-top:40px;padding-left:10px">
+        <h2>Search for Classes by Subject</h2>
+    </div>
+
+    <div class="d-flex" style="padding-top:20px;padding-left:10px">
+        <form action="search" method="post">
+            {% csrf_token %}
+            <fieldset>
+                {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+                <label for="search">This search will return all sections of all classes for a given subject</label>
+                <select id="search" name="search">
+                    <option value="AAS">African-American and African Studies</option>
+                    <option value="AMST">American Studies</option>
+                    <option value="ANTH">Anthropology</option>
+                    <option value="ARAB">Arabic</option>
+                    <option value="ARAD">Arts Administration</option>
+                    <option value="ARAH">History of Art and Architecture</option>
+                    <option value="ARCY">Archaeology</option>
+                    <option value="ARTH">History of Art</option>
+                    <option value="ARTR">Arabic in Translation</option>
+                    <option value="ARTS">Studio Art</option>
+                    <option value="ASL">American Sign Language</option>
+                    <option value="ASTR">Astronomy</option>
+                    <option value="BIOL">Biology</option>
+                    <option value="CASS">College Art Scholars Seminar</option>
+                    <option value="CHEM">Chemistry</option>
+                    <option value="CHIN">Chinese</option>
+                    <option value="CHTR">Chinese in Translation</option>
+                    <option value="CLAS">Classics</option>
+                    <option value="COGS">Cognitive Science</option>
+                    <option value="COLA">College Advising Seminar</option>
+                    <option value="CREO">Creole</option>
+                    <option value="DANC">Dance</option>
+                    <option value="DEM">Democracy Initiative</option>
+                    <option value="DH">Digital Humanities</option>
+                    <option value="DRAM">Drama</option>
+                    <option value="EALC">East Asian Languages, Literatures, and Cultures</option>
+                    <option value="EAST">East Asian Studies</option>
+                    <option value="ECON">Economics</option>
+                    <option value="EGMT">Engagement</option>
+                    <option value="ELA">Engaging the Liberal Arts</option>
+                    <option value="ENCW">English-Creative Writing</option>
+                    <option value="ENGL">English Literature</option>
+                    <option value="ENWR">English-Academic, Professional, & Creative Writing</option>
+                    <option value="ETP">Environmental Thought and Practice</option>
+                    <option value="EURS">European Studies</option>
+                    <option value="EVAT">Environmental Sciences-Atmospheric Sciences</option>
+                    <option value="EVEC">Environmental Sciences-Ecology</option>
+                    <option value="EVGE">Environmental Sciences-Geosciences</option>
+                    <option value="EVHY">Environmental Sciences-Hydrology</option>
+                    <option value="EVSC">Environmental Sciences</option>
+                    <option value="FREN">French</option>
+                    <option value="GCCS">Global Commerce in Culture and Society</option>
+                    <option value="GDS">Global Development Studies</option>
+                </select>
+                <button type="submit" class="btn btn-ora" style="padding-left:10px">
+                    Submit
+                </button>
+            </fieldset>
+        </form>
+    </div>
+
+       <div class="d-flex" style="padding-top:30px;padding-left:10px;width:100%">
+        <h2>Search for Approved Classes From Other Schools</h2>
+    </div>
+
+    <div class="d-flex" style="padding-top:20px;padding-left:10px;padding-bottom:10px">
+        <form action="transfer_AS" method="post">
+            {% csrf_token %}
+            <fieldset>
+                {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+                <label for="transfer_AS">This search will return all transfer equivalencies for a given university</label>
+                <select id="transfer_AS" name="transfer_AS">
+                    <option value=1>Univ North Texas</option>
+                    <option value=2>Univ Rhode Island</option>
+                    <option value=3>Florida State University</option>
+                </select>
+                <button type="submit" class="btn btn-ora" style="padding-left:10px">
+                    Submit
+                </button>
+            </fieldset>
+        </form>
+    </div>
+
     <div class="d-flex" style="padding-top:20px;padding-left:10px">
         <form action="freeSearchAS" method="post">
             {% csrf_token %}
@@ -188,6 +279,11 @@ h1, h2 {
             </fieldset>
         </form>
     </div>
+
+    <div class="d-flex" style="padding-left:10px;padding-top:10px">
+        <a href="/home/clas/approved" class="btn btn-ora">Approved Classes From Other Universities</a>
+    </div>
+
 
     <div class="d-xxl-flex">
         <nav class="navbar" style="background-color: #232D4B">

@@ -1,8 +1,16 @@
-$University of Test A
-A	A	A	A	A
-A	A	A	A	A
-A	A	A	A	A
-ESC 1000	Intro to Environmental Science	3	EVSC 1110	3
-$B
-B	B	B	B	B
+$Univ North Texas
+BIOL 1710	---	3	BIOL 2100	3
+BIOL 1720	---	3	BIOL 2200	3
+BIOL 1730	---	1	BIOL 2030	1
+BIOL 1740	---	1	BIOL 2040	1
+$Univ Rhode Island
+ARH 120	---	3	ARTH 1051	3
+ARH 252	---	3	ARTH 1052	3
+AVS 101	---	3	BIOL 1000T	3
+BAC 110	---	3	CS 1020	3
+$Florida State University
+CGS 2100	---	3	CS 1010	3
+CHD 3220	---	3	PSYC 2700	3
+CHM 1045	---	3	CHEM 1000T	3
+CHM 1046	---	4	CHEM 1420	4
 $End

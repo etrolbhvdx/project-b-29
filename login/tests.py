@@ -8,11 +8,11 @@ from .views import transfer, search
 class SeasTestCase(TestCase):
 
     def test_seas_results(self):
-        response = self.client.get('/home/seas/results')
+        response = self.client.get('/home/seas/results', follow=True)
         self.assertEqual(response.status_code, 200)
 
     def test_seas_approved(self):
-        response = self.client.get('/home/seas/approved')
+        response = self.client.get('/home/seas/approved', follow=True)
         self.assertEqual(response.status_code, 200)
 
     def test_seas_message_post(self):

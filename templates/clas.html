@@ -170,6 +170,12 @@ input[type="text"] {
         <small id="commentsHelp">Notice: Decisions will be processed in no more than 24 business hours</small>
     </div>
 
+    <div class="d-flex" style="padding-left:10px;padding-top:10px">
+    <p><a class="btn btn-ora" href="/home/pendingAS" role="button" style="width:100%">
+        View your pending requests
+    </a></p>
+    </div>
+
     <div class="d-flex" style="padding-top:40px;padding-left:10px">
         <h2>Search for Classes by Subject</h2>
     </div>
@@ -224,6 +230,90 @@ input[type="text"] {
                     <option value="FREN">French</option>
                     <option value="GCCS">Global Commerce in Culture and Society</option>
                     <option value="GDS">Global Development Studies</option>
+                    <option value="GERM">German</option>
+                    <option value="GETR">German in Translation</option>
+                    <option value="GHSS">Graduate Humanities and Social Sciences</option>
+                    <option value="GREE">Greek</option>
+                    <option value="GSGS">Global Studies-Global Studies</option>
+                    <option value="GSMS">Global Studies-Middle East and South Asia</option>
+                    <option value="GSSJ">Global Studies-Security and Justice</option>
+                    <option value="GSVS">Global Studies-Environments and Sustainability</option>
+                    <option value="HBIO">Human Biology</option>
+                    <option value="HEBR">Hebrew</option>
+                    <option value="HIAF">History-African History</option>
+                    <option value="HIEA">History-East Asian History</option>
+                    <option value="HIEU">History-European History</option>
+                    <option value="HILA">History-Latin American History</option>
+                    <option value="HIME">History-Middle Eastern History</option>
+                    <option value="HIND">Hindi</option>
+                    <option value="HISA">History-South Asian History</option>
+                    <option value="HIST">History-General History</option>
+                    <option value="HIUS">History-United States History</option>
+                    <option value="HSCI">College Science Scholars Seminar</option>
+                    <option value="IMP">Interdisciplinary Thesis</option>
+                    <option value="INST">Interdisciplinary Studies</option>
+                    <option value="ITAL">Italian</option>
+                    <option value="ITTR">Italian in Translation</option>
+                    <option value="JAPN">Japanese</option>
+                    <option value="JPTR">Japanese in Translation</option>
+                    <option value="JWST">Jewish Studies</option>
+                    <option value="KICH">Maya K'iche</option>
+                    <option value="KOR">Korean</option>
+                    <option value="LASE">Liberal Arts Seminar</option>
+                    <option value="LAST">Latin American Studies</option>
+                    <option value="LATI">Latin</option>
+                    <option value="LING">Linguistics</option>
+                    <option value="LNGS">General Linguistics</option>
+                    <option value="MATH">Mathematics</option>
+                    <option value="MDST">Media Studies</option>
+                    <option value="MESA">Middle Eastern & South Asian Languages & Cultures</option>
+                    <option value="MEST">Middle Eastern Studies</option>
+                    <option value="MSP">Medieval Studies</option>
+                    <option value="MUBD">Music-Marching Band</option>
+                    <option value="MUEN">Music-Ensembles</option>
+                    <option value="MUPF">Music-Private Performance Instruction</option>
+                    <option value="MUSI">Music</option>
+                    <option value="NESC">Neuroscience</option>
+                    <option value="PERS">Persian</option>
+                    <option value="PETR">Persian in Translation</option>
+                    <option value="PHAR">Pharmacology</option>
+                    <option value="PHIL">Philosophy</option>
+                    <option value="PHS">Public Health Sciences</option>
+                    <option value="PHYS">Physics</option>
+                    <option value="PLAD">Politics-Departmental Seminar</option>
+                    <option value="PLAP">Politics-American Politics</option>
+                    <option value="PLCP">Politics-Comparative Politics</option>
+                    <option value="PLIR">Politics-International Relations</option>
+                    <option value="PLPT">Politics-Political Theory</option>
+                    <option value="PMCC">Premodern Cultures and Communities</option>
+                    <option value="POL">Polish</option>
+                    <option value="PORT">Portuguese</option>
+                    <option value="PPL">Political Philosophy, Policy, and Law</option>
+                    <option value="PST">Political and Social Thought</option>
+                    <option value="PSYC">Psychology</option>
+                    <option value="RELA">Religion-African Religions</option>
+                    <option value="RELB">Religion-Buddhism</option>
+                    <option value="RELC">Religion-Christianity</option>
+                    <option value="RELG">Religion-General Religion</option>
+                    <option value="RELH">Religion-Hinduism</option>
+                    <option value="RELI">Religion-Islam</option>
+                    <option value="RELJ">Religion-Judaism</option>
+                    <option value="RELS">Religion-Special Topic</option>
+                    <option value="RSC">Regional Studies Consortium</option>
+                    <option value="RUSS">Russian</option>
+                    <option value="RUTR">Russian in Translation</option>
+                    <option value="SANS">Sanskrit</option>
+                    <option value="SAST">South Asian Studies</option>
+                    <option value="SATR">South Asian Literature in Translation</option>
+                    <option value="SLAV">Slavic</option>
+                    <option value="SLFK">Slavic Folklore & Oral Literature</option>
+                    <option value="SOC">Sociology</option>
+                    <option value="SPAN">Spanish</option>
+                    <option value="STAT">Statistics</option>
+                    <option value="SWAH">Swahili</option>
+                    <option value="TURK">Turkish</option>
+                    <option value="URDU">Urdu</option>
+                    <option value="WGS">Women, Gender, and Sexuality</option>
                 </select>
                 <button type="submit" class="btn btn-ora" style="padding-left:10px">
                     Submit
@@ -243,6 +333,9 @@ input[type="text"] {
                 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
                 <label for="transfer_AS">This search will return all transfer equivalencies for a given university</label>
                 <select id="transfer_AS" name="transfer_AS">
+                    <option value=1>Univ North Texas</option>
+                    <option value=2>Univ Rhode Island</option>
+                    <option value=3>Florida State University</option>
                     {% for newSchool in object_list %}
                         <option value={{newSchool.index}}>{{ newSchool.school_name }}</option>
                     {% endfor %}
@@ -267,6 +360,7 @@ input[type="text"] {
             </fieldset>
         </form>
     </div>
+
 
     <div class="d-xxl-flex">
         <nav class="navbar" style="background-color: #232D4B">
