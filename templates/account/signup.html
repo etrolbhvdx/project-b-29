@@ -1,0 +1,134 @@
+{% load socialaccount %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+
+<style>
+  body {
+        background-color: #F8F9FA;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .navbar {
+        background-color: #232D4B;
+        border-radius: 0px;
+        width:100%;
+    }
+
+    .navbar-brand {
+        color: white;
+        font-weight: bold;
+    }
+
+    .navbar-text {
+        color: white;
+        font-size: 14px;
+    }
+
+    .dropdown-menu {
+        border-radius: 0px;
+    }
+
+    .dropdown-item {
+        font-size: 14px;
+    }
+
+    body {
+      background-image: url('https://news.virginia.edu/sites/default/files/snow_day_uva_ss_inline_12.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .card {
+      position: relative;
+      background-color: rgba(255, 255, 255, 0.8);
+      box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.8);
+    }
+
+
+    h1 {
+        color: #232D4B;
+        font-weight: bold;
+    }
+
+    .btn-ora {
+        background-color: #F84C1E;
+        border-color: #F84C1E;
+        color: white;
+        font-weight: bold;
+        border-radius: 10px;
+    }
+
+    form.signup input[type="text"],
+    form.signup input[type="email"],
+    form.signup input[type="password"] {
+        display: inline-block;
+        width: 100%;
+    }
+
+
+</style>
+
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+
+
+  </head>
+  <body>
+
+  <div class="d-xxl-flex">
+    <nav class="navbar navbar-expand navbar-dark" style="background-color: #232D4B">
+      <a class="navbar-brand" href="#">
+        <img src="https://dynaimage.cdn.cnn.com/cnn/c_fill,g_auto,w_1200,h_675,ar_16:9/https%3A%2F%2Fcdn.cnn.com%2Fcnnnext%2Fdam%2Fassets%2F200617130257-01-uva-reworked-logo-0616.jpg" width="50" height="30" class="d-inline-block align-top" alt="">
+        Transfer Tracker
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </nav>
+  </div>
+
+
+  <div class="container">
+  <div class="row">
+    <div class="col-sm-6 mx-auto">
+      <div class="card mt-5">
+        <div class="card-body" style="margin: 0 auto;">
+
+          <h1>Sign Up</h1>
+
+          <div class="d-flex" style="padding-bottom:20px;padding-top:10px">
+            <a href="/accounts/login/" style="color: inherit;">Already Have An Account?</a>
+          </div>
+
+          <form class="signup" id="signup_form" method="post" action="/accounts/signup/">
+              <input type="hidden" name="csrfmiddlewaretoken" value="7CvivxDjvPFAiiltuWsivS1s8oaetheEUhO8UklRray5p7U8V0WNAoyoSk4Uub97">
+              <p><label for="id_username">Username:</label> <input type="text" name="username" placeholder="Username" autocomplete="username" minlength="1" maxlength="150" required id="id_username"></p>
+              <p><label for="id_email">E-mail (optional):</label> <input type="email" name="email" placeholder="E-mail address" autocomplete="email" id="id_email"></p>
+              <p><label for="id_password1">Password:</label> <input type="password" name="password1" placeholder="Password" autocomplete="new-password" required id="id_password1"></p>
+              <p><label for="id_password2">Password (again):</label> <input type="password" name="password2" placeholder="Password (again)" autocomplete="new-password" required id="id_password2"></p>
+              <div style="display:inline-block;padding-right:30px"><button class="btn btn-ora" type="submit">Sign Up &raquo;</button></div>
+              <button class="btn btn-ora" href="/accounts/google/login/?process=login">Sign In With Google</button>
+          </form>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <div class="d-xxl-flex">
+    <nav class="navbar fixed-bottom" style="background-color: #232D4B">
+      <span class="navbar-text" style="padding-left:10px">UVA CS 3240</span>
+      <span class="navbar-text ml-auto" style="padding-right:10px">Created by Anas Tariq, James O'Connell, Spencer Jackson, Alexander Davis, Zachary Mills </span>
+    </nav>
+  </div>
+
+  </body>
+</html>
