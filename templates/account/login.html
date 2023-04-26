@@ -1,0 +1,130 @@
+{% load socialaccount %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+
+<style>
+  body {
+        background-color: #F8F9FA;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .navbar {
+        background-color: #232D4B;
+        border-radius: 0px;
+        width:100%;
+    }
+
+    .navbar-brand {
+        color: white;
+        font-weight: bold;
+    }
+
+    .navbar-text {
+        color: white;
+        font-size: 14px;
+    }
+
+    .dropdown-menu {
+        border-radius: 0px;
+    }
+
+    .dropdown-item {
+        font-size: 14px;
+    }
+
+    body {
+      background-image: url('https://news.virginia.edu/sites/default/files/snow_day_uva_ss_inline_12.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .card {
+      position: relative;
+      background-color: rgba(255, 255, 255, 0.8);
+      box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.8);
+    }
+
+
+    h1 {
+        color: #232D4B;
+        font-weight: bold;
+    }
+
+    .btn-ora {
+        background-color: #F84C1E;
+        border-color: #F84C1E;
+        color: white;
+        font-weight: bold;
+        border-radius: 10px;
+    }
+
+
+</style>
+
+
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+
+
+  </head>
+  <body>
+
+  <div class="d-xxl-flex">
+    <nav class="navbar navbar-expand navbar-dark" style="background-color: #232D4B">
+      <a class="navbar-brand" href="#">
+        <img src="https://dynaimage.cdn.cnn.com/cnn/c_fill,g_auto,w_1200,h_675,ar_16:9/https%3A%2F%2Fcdn.cnn.com%2Fcnnnext%2Fdam%2Fassets%2F200617130257-01-uva-reworked-logo-0616.jpg" width="50" height="30" class="d-inline-block align-top" alt="">
+        Transfer Tracker
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </nav>
+  </div>
+
+  <div class="container">
+  <div class="row">
+    <div class="col-sm-6 mx-auto">
+      <div class="card mt-5">
+        <div class="card-body" style="margin: 0 auto;">
+
+          <h1>Sign In</h1>
+
+          <div class="d-flex" style="padding-bottom:20px;padding-top:10px">
+            <a href="/accounts/signup/" style="color: inherit;">Create Account Here!</a>
+          </div>
+
+          <form class="login" method="POST" action="/accounts/login/">
+            <input type="hidden" name="csrfmiddlewaretoken" value="Y9nmhKM0XgpsV5fDJzJIU5ygGP9HlspLFVVXUFBDzTs8LRWFdMdlhBUQdg7lX9LW">
+            <p><label for="id_login">Username:</label> <input type="text" name="login" placeholder="Username" autocomplete="username" maxlength="150" required id="id_login"></p>
+            <p><label for="id_password">Password:</label> <input type="password" name="password" placeholder="Password" autocomplete="current-password" required id="id_password"></p>
+            <div style="display: inline-block;padding-right:20px"><label for="id_remember">Remember Me:</label> <input type="checkbox" name="remember" id="id_remember"></div>
+            <button class="btn btn-ora" style="opacity:0.9; display: inline-block;" type="submit">Sign In</button>
+          </form>
+
+          <div class="d-flex" style="padding-bottom:20px;opacity:0.9">
+            <button class="btn btn-ora" href="/accounts/google/login/?process=login">
+              Sign In With Google
+            </button>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="d-xxl-flex">
+    <nav class="navbar fixed-bottom" style="background-color: #232D4B">
+      <span class="navbar-text" style="padding-left:10px">UVA CS 3240</span>
+      <span class="navbar-text ml-auto" style="padding-right:10px">Created by Anas Tariq, James O'Connell, Spencer Jackson, Alexander Davis, Zachary Mills </span>
+    </nav>
+  </div>
+
+  </body>
+</html>
