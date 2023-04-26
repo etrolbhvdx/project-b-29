@@ -438,6 +438,7 @@ MATH 310	Linear Algebra	3	APMA 3080	3
 PHYS 207	University Physics I	5	PHYS 1425/1429	3/1
 PHYS 208	University Physics II	5	PHYS 2415/2419	3/1
 $Virginia Tech
+CUM69420	Cum Theory 1: Intro to shit, piss, and cum	69	0	iamstupid
 CHEM 1035	General Chemistry	3	CHEM 1410	3
 CHEM 1045	General Chemistry Lab	1	CHEM 1411	1
 CHEM 1036	General Chemistry	3	CHEM 1420	3
@@ -447,4 +448,8 @@ PHYS 2306	Found. Of Physics II	4	PHYS 2415/2419	3/1
 $University of Wisconsin
 MAT 222	Calculus & Analytical Geo II	5	APMA 1110	4
 MAT 223	Calculus & Analytical Geo III	4	APMA 2120	4
+$University of North Carolina - Pembroke
+CS 4000	Algorithms	3	CS 3100	3
+$University of Testing
+BIOL 3010	Genetics and Molecular Biology	3	BIOL 3000	3
 $End

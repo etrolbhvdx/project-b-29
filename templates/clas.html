@@ -361,6 +361,11 @@ input[type="text"] {
         </form>
     </div>
 
+    <div class="d-flex" style="padding-left:10px;padding-top:10px">
+    <p><a class="btn btn-ora" href="/home/" role="button" style="width:100%">
+        Back to home
+    </a></p>
+    </div>
 
     <div class="d-xxl-flex">
         <nav class="navbar" style="background-color: #232D4B">
@@ -368,6 +373,7 @@ input[type="text"] {
           <span class="navbar-text ml-auto" style="padding-right:5px">Created by Anas Tariq, James O'Connell, Spencer Jackson, Alexander Davis, Zachary Mills </span>
         </nav>
     </div>
+
 
     {% else %}
     <a href="{% provider_login_url 'google' %}">Login With Google</a>
