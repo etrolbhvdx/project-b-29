@@ -1,0 +1,42 @@
+{% load socialaccount %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+
+
+  </head>
+  <body>
+
+
+
+
+    <div>
+      <strong>Menu:</strong>
+      <ul>
+
+        <li><a href="/accounts/login/">Sign In</a></li>
+        <li><a href="/accounts/signup/">Sign Up</a></li>
+
+      </ul>
+    </div>
+
+
+<h1>Sign In Via Google</h1>
+
+<p>You are about to sign in using a third party account from Google.</p>
+
+
+    <a href="{% provider_login_url 'google' %}">Continue</a>
+
+
+
+
+
+  </body>
+</html>
