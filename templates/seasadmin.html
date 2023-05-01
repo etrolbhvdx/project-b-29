@@ -136,25 +136,45 @@ body {
     <div class="d-flex" style="padding-top:20px;padding-left:10px">
         <h2>Approve or Deny Requests</h2>
     </div>
+    <div class="d-flex" style="padding-bottom:20px;padding-left:25px;padding-right:25px">
+            <table class="table table-hover">
+                <tr>
+                    <th>Course Number</th>
+                    <th>Class Name</th>
+                    <th>Class Credits</th>
+                    <th>School</th>
+                    <th>UVA Course Name</th>
+                    <th>UVA Credits</th>
+                    <th>Class URL</th>
+                    <th>Approve</th>
+                    <th>Deny</th>
+                </tr>
+                {% for message in object_list %}
+                <tr>
+                    <th>{{ message.class_number }}</th>
+                    <th>{{ message.message_text }}</th>
+                    <th>{{ message.class_credits }}</th>
+                    <th>{{ message.school_name }}</th>
+                    <th>{{ message.equivalency_name }}</th>
+                    <th>{{ message.UVA_credits }}</th>
+                    <th>{{ message.site_url }}</th>
+                    <th><form action="approveTransfer?id={{message.id}}" method="post">
+                        {% csrf_token %}
+                        <button class="btn btn-ora">Approve request</button>
+                    </form></th>
+                    <th><form action="denyTransfer?id={{message.id}}" method="post" style="padding-left:10px">
+                        {% csrf_token %}
+                        <button class="btn btn-ora">Deny request</button>
+                    </form></th>
+                </tr>
+                {% endfor %}
+            </table>
+         </div>
     {% else %}
     <div class="d-flex" style="padding-top:20px;padding-left:10px">
         <h2>There Are No Pending Requests</h2>
     </div>
     {% endif %}
-
-    {% for message in object_list %}
-    <div class="d-flex" style="padding-top:20px;padding-left:10px">
-        <p style="padding-right:15px">{{ message }}</p>
-        <form action="approveTransfer?id={{message.id}}" method="post">
-            {% csrf_token %}
-            <button class="btn btn-ora">Approve request</button>
-        </form>
-        <form action="denyTransfer?id={{message.id}}" method="post" style="padding-left:10px">
-            {% csrf_token %}
-            <button class="btn btn-ora">Deny request</button>
-        </form>
-    </div>
-    {% endfor %}
 
     <div class="d-flex" style="padding-top:40px;padding-left:10px">
         <h2>Submit a Request to Transfer Credit</h2>
