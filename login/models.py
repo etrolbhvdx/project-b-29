@@ -79,6 +79,7 @@ class DeniedTransfer(models.Model):
     school_name = models.CharField(max_length=200, default="uva")
     equivalency_name = models.CharField(max_length=200, default="None")
     user=models.CharField(max_length=200,default="None")
+    reason= models.CharField(max_length=200, default="None")
 
     def __str__(self):
         return "Class="+self.class_name+", School="+self.school_name+", Equivalency="+self.equivalency_name
@@ -99,6 +100,7 @@ class DeniedTransfer_AS(models.Model):
     school_name = models.CharField(max_length=200, default="uva")
     equivalency_name = models.CharField(max_length=200, default="None")
     user=models.CharField(max_length=200,default="None")
+    reason = models.CharField(max_length=200, default="None")
 
     def __str__(self):
         return "Class="+self.class_name+", School="+self.school_name+", Equivalency="+self.equivalency_n

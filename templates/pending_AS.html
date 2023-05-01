@@ -158,12 +158,14 @@ body {
                     <th>Course Number</th>
                     <th>School</th>
                     <th>Class Name</th>
+                    <th>Reason For Decision</th>
                 </tr>
                 {% for message in deny %}
                 <tr>
                     <th>{{ message.class_name }}</th>
                     <th>{{ message.school_name }}</th>
                     <th>{{ message.equivalency_name }}</th>
+                    <th>{{ message.reason }}</th>
                 </tr>
                 {% endfor %}
             </table>
@@ -181,7 +183,7 @@ body {
     </a></p>
     </div>
 
-<div class="d-xxl-flex">
+<div class="d-xxl-flex" style="margin-top:60px">
     <nav class="navbar fixed-bottom" style="background-color: #232D4B">
       <span class="navbar-text" style="padding-left:10px">UVA CS 3240</span>
       <span class="navbar-text ml-auto" style="padding-right:10px">Created by Anas Tariq, James O'Connell, Spencer Jackson, Alexander Davis, Zachary Mills </span>

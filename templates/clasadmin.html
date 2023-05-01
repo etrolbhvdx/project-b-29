@@ -161,7 +161,8 @@ body {
                     </form></th>
                     <th><form action="denyTransfer_AS?id={{message.id}}" method="post" style="padding-left:10px">
                         {% csrf_token %}
-                        <button class="btn btn-ora">Deny request</button>
+                        <button type="submit" class="btn btn-ora">Deny request</button>
+                        <input type="text" name = "message" id="reasonInput" placeholder="Enter Reason For Decision" style="margin-top:10px">
                     </form></th>
                 </tr>
                 {% endfor %}
@@ -332,6 +333,7 @@ body {
     </a></p>
     </div>
 
+    </div>
 
     <div class="d-xxl-flex">
         <nav class="navbar" style="background-color: #232D4B">
@@ -348,4 +350,3 @@ body {
 </div>
 </body>
 </html>
-

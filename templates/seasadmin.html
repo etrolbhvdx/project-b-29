@@ -165,6 +165,7 @@ body {
                     <th><form action="denyTransfer?id={{message.id}}" method="post" style="padding-left:10px">
                         {% csrf_token %}
                         <button class="btn btn-ora">Deny request</button>
+                        <input type="text" name = "message" id="reasonInput" placeholder="Enter Reason For Decision" style="margin-top:10px">
                     </form></th>
                 </tr>
                 {% endfor %}
