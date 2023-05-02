@@ -160,7 +160,7 @@ def approveTransfer(request):
                     new_listings_2.write(item)
         new_listings_2.close()
 
-    req=ApprovedTransfer(class_name=me.message_text,school_name=me.school_name,equivalency_name=me.equivalency_name,user=request.user)
+    req=ApprovedTransfer(class_name=me.message_text,school_name=me.school_name,equivalency_name=me.equivalency_name,user=me.user)
     me.delete()
     req.save()
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
@@ -206,7 +206,7 @@ def approveTransfer_AS(request):
                     new_listings_2.write(item)
         new_listings_2.close()
 
-    req_AS=ApprovedTransfer_AS(class_name=me_AS.message_text,school_name=me_AS.school_name,equivalency_name=me_AS.equivalency_name,user=request.user)
+    req_AS=ApprovedTransfer_AS(class_name=me_AS.message_text,school_name=me_AS.school_name,equivalency_name=me_AS.equivalency_name,user=me_AS.user)
     me_AS.delete()
     req_AS.save()
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
@@ -214,7 +214,7 @@ def approveTransfer_AS(request):
 def denyTransfer(request):
     me = Message.objects.get(id=request.GET.get('id'))
     req = DeniedTransfer(class_name=me.message_text, school_name=me.school_name, equivalency_name=me.equivalency_name,
-                           user=request.user, reason=request.POST.get("message", ""),)
+                           user=me.user, reason=request.POST.get("message", ""),)
     me.delete()
     req.save()
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
@@ -223,7 +223,7 @@ def denyTransfer(request):
 def denyTransfer_AS(request):
     me_AS = Message_AS.objects.get(id=request.GET.get('id'))
     req = DeniedTransfer_AS(class_name=me_AS.message_text, school_name=me_AS.school_name, equivalency_name=me_AS.equivalency_name,
-                           user=request.user, reason=request.POST.get("message", ""),)
+                           user=me_AS.user, reason=request.POST.get("message", ""),)
     me_AS.delete()
     req.save()
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
